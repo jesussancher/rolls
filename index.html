@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/cart.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=K2D:wght@100;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -71,7 +72,7 @@
         <!-- Hero end -->
         </div>
         <!-- Header end -->
-
+        
         <!-- Rolls section start -->
         <section id="RollsSection" class="scrollable">
                 
@@ -84,7 +85,7 @@
 
                         </div>
                         <div class="product-content row-4">
-                            <a href="#" class="btn orange K2D" id="addCampesina">Agregar</a>
+                            <a onclick="showCart()" class="btn orange K2D" id="addCampesina">Agregar</a>
                         </div>
                     </div>
                     <!-- Picarona -->
@@ -147,6 +148,7 @@
             </nav>
         </div>
         </section>
+        
         <!-- Rolls section end -->
 
 
@@ -227,8 +229,10 @@
             </div>
             </section>
     <!-- Fast Food section end -->
-        
-    
+    <!-- <div class="sticky-card"> -->
+        <span id="cart" class="fas fa-shopping-cart card invisible"></span>
+        <span id="counterCart" class="counter-card K2D black invisible">1</span>
+    <!-- </div> -->
     <!-- Promos start -->
         <div class="promos-section bg-black">
             <h2 class="promoTitle bebas white pt-60">¡PROMOS!</h2>
@@ -248,7 +252,8 @@
     <div class="footer2 align-center">
         <p style="font-size: 10px; font-style: italic;" class="K2D bebas white">"El mundo debería reírse más, pero después de haber probado un Rolls"</p>
     </div>
-</footer>
+    </footer>
+    
 </body>
 
     <!-- Scripts -->
@@ -256,4 +261,5 @@
     <script src="js/typing.js"></script>
     <script src="js/products.js"></script>
     <script src="js/nav.js"></script>
+    <script src="js/cart.js"></script>
 </html>

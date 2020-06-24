@@ -25,6 +25,8 @@ function check_if_in_view() {
   });
 }
 
+
+
 $(document).ready(function(){
     $('#rollsClick').click(function(){
         $('#rollsClick').show().animate({opacity:'1'}, 2000)
