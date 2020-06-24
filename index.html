@@ -85,7 +85,7 @@
 
                         </div>
                         <div class="product-content row-4">
-                            <a onclick="showCart()" class="btn orange K2D" id="addCampesina">Agregar</a>
+                            <a onclick="showCart(),addItem(id)" class="btn orange K2D" id="addCampesina">Agregar</a>
                         </div>
                     </div>
                     <!-- Picarona -->
@@ -94,7 +94,7 @@
                             <img class="w-80" src="assets/images/Rolls/Picarona.png"/>
                         </div>
                         <div class="product-content row-4">
-                            <a href="#" class="btn orange K2D" id="addPicarona">Agregar</a>
+                            <a onclick="showCart(),addItem(id)" class="btn orange K2D" id="addPicarona">Agregar</a>
                         </div>
                     </div>
                     <!-- Rancherita -->
@@ -103,7 +103,7 @@
                             <img class="w-80" src="assets/images/Rolls/Rancherita.png"/>
                         </div>
                         <div class="product-content row-4">
-                            <a href="#" class="btn orange K2D" id="addRancherita">Agregar</a>
+                            <a onclick="showCart(),addItem(id)" class="btn orange K2D" id="addRancherita">Agregar</a>
                         </div>
                     </div>
                     <!-- Caprichosa -->
@@ -112,7 +112,7 @@
                             <img class="w-80" src="assets/images/Rolls/Caprichosa.png"/>
                         </div>
                         <div class="product-content row-4">
-                            <a href="#" class="btn orange K2D" id="addCaprichosa">Agregar</a>
+                            <a onclick="showCart(),addItem(id)" class="btn orange K2D" id="addCaprichosa">Agregar</a>
                         </div>
                     </div>
                     <!-- Melosa -->
@@ -121,7 +121,7 @@
                             <img class="w-80" src="assets/images/Rolls/Melosa.png"/>
                         </div>
                         <div class="product-content row-4">
-                            <a href="#" class="btn orange K2D" id="addMelosa">Agregar</a>
+                            <a onclick="showCart(),addItem(id)" class="btn orange K2D" id="addMelosa">Agregar</a>
                         </div>
                     </div>
                     <!-- Granjerita -->
@@ -130,7 +130,7 @@
                             <img class="w-80" src="assets/images/Rolls/Granjerita.png"/>
                         </div>
                         <div class="product-content row-4">
-                            <a href="#" class="btn orange K2D" id="addGranjerita">Agregar</a>
+                            <a onclick="showCart(),addItem(id)" class="btn orange K2D" id="addGranjerita">Agregar</a>
                         </div>
                     </div>
                 </div>
@@ -229,10 +229,12 @@
             </div>
             </section>
     <!-- Fast Food section end -->
+
     <!-- <div class="sticky-card"> -->
         <span id="cart" class="fas fa-shopping-cart card invisible"></span>
-        <span id="counterCart" class="counter-card K2D black invisible">1</span>
+        <span id="counterCart" class="counter-card K2D black invisible"></span>
     <!-- </div> -->
+
     <!-- Promos start -->
         <div class="promos-section bg-black">
             <h2 class="promoTitle bebas white pt-60">¡PROMOS!</h2>
