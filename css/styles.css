@@ -1,0 +1,419 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+
+
+:root{
+    --primary-orange: #f69220;
+    --secondary-black: #000;
+    --comp-orange: #f6bd20;
+    /* --comp-yellow: #ffd801; */
+    /* #1ae2e2 */
+}
+
+
+/* Navigation */
+.nav-container{
+    height: 80px;
+    /* background-color: var(--secondary-black); */
+}
+.logo-cotainer{
+    padding:25px 25px;
+}
+.logo{
+    width: 70px;
+}
+    /* Nav menu */
+    nav ul li{
+        display: inline-block;
+    }
+    nav ul li a{
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 0.7em;
+        padding: 0 5px;
+    }
+
+
+/* Header */
+.blackSection{
+    height: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100); 
+    background-color: var(--secondary-black);
+    z-index: 20;
+}
+.hero{
+    height: 100vh;
+    background-image: url(/assets/images/headBack.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 100;
+}
+.sub-hero{
+    height: 60vh;
+    /* bottom: 20px; */
+    background-image: url(/assets/images/headRolls.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.enrollado{
+    font-size: 28px;
+    height: 65px;
+}
+
+
+/* Info domicilios */
+.delivery{
+    padding: 0px 20px;
+    margin-bottom:-6px;
+}
+.delivery-bg{
+    /* height: 100vh; */
+    left:0px;
+    background-image: url(/assets/images/Delivery.svg);
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    /* background-size: cover; */
+    z-index: 100;
+}
+
+
+/* Promos section */
+.promos-section{
+    z-index: 120;
+    /* margin-bottom:-5px; */
+}
+.promoTitle{
+    font-size: 40px;
+    z-index:110;
+    /* top:-50px; */
+    padding:0px 50px;
+}
+
+
+/* Yellow section */
+.yellow{
+    background-color: var(--secondary-black);
+    /* background-image: radial-gradient(var(--comp-orange),var(--primary-orange)); */
+    z-index: 30;
+}
+
+
+/* Product */
+
+    /* Product nav */
+    .product-nav-container{
+        padding:25px 10px;
+    }
+    #productNav ul{
+        margin-left: -40px;
+    }
+    #productNav ul li{
+        display: inline-block;
+    }
+    #productNav ul li a{
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 15px;
+        padding: 0 10px;
+        transition: color 0.5s, border 0.5s;
+    }
+
+    #productNav ul li a:hover{
+        color:var(--primary-orange);
+    }
+
+    #productNav ul li:active{
+        color:var(--primary-orange);
+    }
+
+    .product-navigation{
+        position: sticky;
+        bottom:0;
+        z-index: 200;
+    }
+
+.product-title-container{
+    height: 95px;
+}
+
+.product-card{
+    height: 220px;
+    /* border-bottom: solid 1px var(--primary-orange); */
+}
+.product-photo{
+    /* left: -15px; */
+    margin: 40px 0px 10px 0px;
+}
+
+.campesina{
+    background-color: #ffd101;
+}
+.picarona{
+    background-color: #40a629;
+}
+.rancherita{
+    background-color: #ff0001;
+}
+.caprichosa{
+    background-color: #4fa0ca;
+}
+
+
+/* Inputs */
+.input{
+    height: 30px;
+    width: 60px;
+    border-radius: 5px 0px 0px 5px;
+    border: solid 1px var(--primary-orange)
+
+}
+
+
+/* Lettering */
+.bebas{
+    font-family: 'Bebas Neue', cursive;
+}
+.K2D{
+    font-family: 'K2D', sans-serif;
+}
+
+h1{
+    font-size: 58px;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 1em;
+}
+h2{
+    font-size: 40px;
+    color: #fff;
+    letter-spacing: 1px;
+    line-height: 1em;
+}
+h3{
+    font-size:30px;
+    letter-spacing: 2px;
+}
+    /* Color */
+    .orange{
+        color: var(--primary-orange) !important;
+    }
+    .white{
+        color: #fff
+    }
+    .black{
+        color: var(--secondary-black)
+    }
+    .black-transparent{
+        color: rgba(0,0,0,0.8) !important
+    }
+
+    /* Background Color */
+    .bg-orange{
+        background-color: var(--primary-orange);
+    }
+    .bg-black{
+        background-color: var(--secondary-black);
+    }
+    .bg-white{
+        background-color: #fff;
+    }
+
+/* Buttons */
+.btn{
+    border: solid 1px var(--primary-orange);
+    padding: 7px 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: color 0.5s;
+}
+
+.btn:hover{
+    color:white;
+}
+
+/* Helpers */
+.absolute{
+    position: absolute;
+}
+.relative{
+    position: relative;
+}
+.align-center{
+    text-align: center;
+}
+.row{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    flex-wrap: nowrap;
+}
+    /* Flex */
+    .col-3{
+        width: 25%;
+    }
+    .col-4{
+        width: calc(4/12*100%);
+    }
+    .col-5{
+        width: calc(5/12*100%);
+    }
+    .col-6{
+        width: 50%;
+    }
+    .col-7{
+        width: calc(7/12*100%);
+    }
+    .col-8{
+        width: calc(8/12*100%);
+    }
+    .col-9{
+        width: 75%;
+    }
+
+    .row-4{
+        height: calc(4/12*100%);
+    }
+    .row-5{
+        height: calc(5/12*100%);
+    }
+    .row-6{
+        height: 50%;
+    }
+    .row-7{
+        height: calc(7/12*100%);
+    }
+    .row-8{
+        height: calc(8/12*100%);
+    }
+
+    /* Distribution */
+    .w-120{
+        width: 120%;
+    }
+    .w-100{
+        width: 100%;
+    }
+    .w-80{
+        width: 80%;
+    }
+
+    /* Leterring helpers */
+    .bold{
+        font-weight: 700;
+    }
+    .align-right{
+        text-align: right;
+    }
+    .align-left{
+        text-align: left;
+    }
+
+.invisible{
+    display:none;
+    opacity: 0;
+}
+/* Icons */
+ /* Style all font awesome icons */
+ .fa {
+    margin:10px 5px;
+    padding: 8px;
+    font-size: 30px;
+    width: 33px;
+    height: 33px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+  
+  /* Add a hover effect if you want */
+  .fa:hover {
+    opacity: 0.7;
+  }
+  
+  /* Set a specific color for each brand */
+  
+  /* Facebook */
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  /* Twitter */
+  .fa-instagram {
+    background: #e1306c;
+    color: white;
+  }
+
+  /* Whatsapp */
+  .fa-whatsapp {
+    background: #25d366;
+    color: white;
+  } 
+
+  /* Forms */
+.counter{
+    height: 30px;
+    padding-top:5px;
+    width: 30px;
+    border-radius: 50%;
+    color: var(--secondary-black);
+    right: 100px;
+    bottom:0px;
+    background-color: #fff;
+    cursor: pointer;
+}
+.form-control{
+    display: inline-block;
+    margin-left:110px;
+    width: 20px !important;
+}
+.btn-outline-secondary{
+    margin-right: 110px;
+}
+.btn-outline-secondary:hover{
+    background-color: var(--primary-orange) !important;
+    border: var(--primary-orange) !important;
+}
+
+/* Padding */
+.pt-40{
+    padding-top:40px;
+}
+.pt-60{
+    padding-top:60px;
+}
+
+/* Margin */
+.mt-60{
+    margin-top:60px;
+}
+/* Shadow */
+.shadow {
+    -webkit-box-shadow: 3px 3px 5px 3px rgba(5,5,5,0.4);
+    -moz-box-shadow:    3px 3px 5px 3px rgba(5,5,5,0.4);
+    box-shadow:         3px 3px 5px 3px rgba(5,5,5,0.4);
+}
+.section-shadow {
+    -webkit-box-shadow: 3px 3px 15px 5px rgba(105,105,105,0.2);
+    -moz-box-shadow:    3px 3px 15px 5px rgba(105,105,105,0.2);
+    box-shadow:         3px 3px 15px 5px rgba(105,105,105,0.2);
+}
+.overflow-hidden{
+    overflow: hidden;
+}
