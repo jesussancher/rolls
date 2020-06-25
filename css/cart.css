@@ -74,6 +74,18 @@ color: #000;
   border-radius: 25px;
   z-index: 370;
 }
+.main-container{
+  opacity: 0;
+  position: fixed;
+  bottom: 0px;
+  right: 0%;
+  width: 0%;
+  height: 0px;
+  background-color: rgba(15,15,15,0.9);
+  /* border: solid 1px var(--primary-orange); */
+  /* border-radius: 25px; */
+  z-index: 180;
+}
 
 .list-container{
   margin: 30px 25px 0px 25px;

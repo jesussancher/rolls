@@ -207,6 +207,12 @@ $(document).ready(function(){
   
       if ($(carritoContainer).height() == 0) {
         
+        $(mainCarrito).animate({
+            height: window_height,
+            width: '100%',
+            opacity: '100%'
+        },"500");
+
         $(carritoContainer).animate({
             height: window_height-100,
             width: '90%',
@@ -216,6 +222,12 @@ $(document).ready(function(){
   
       } else {
   
+        $(mainCarrito).animate({
+            height: '0px',
+            width: '0%',
+            opacity: '0%'
+          },"slow");
+    
         $(carritoContainer).animate({
           height: '0px',
           width: '0%',
