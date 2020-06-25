@@ -24,14 +24,6 @@ itemCounter = function(){
 var itemCounter = 1
 
 
-// let carrito= {
-//     campesina: counterCampesina(),
-//     rancherita: counterRancherita(),
-//     picarona: counterPicarona(),
-//     melosa: counterMelosa(),
-//     granjerita: counterGranjerita(),
-//     caprichosa: counterCaprichosa(capi),
-// }
 
 // function debug(){
 //     const camp = counterCampesina()
@@ -77,6 +69,7 @@ function addItem(id){
     labelCart.innerHTML = html
     // console.log(carrito)
     console.log(id)
+    // printCart()
 }
 // Campesina counteer
 var campesina = {
@@ -85,6 +78,11 @@ var campesina = {
 }
 function counterCampesina(campi){
     const camp = campi.qty++
+    // console.log(camp)
+    return camp
+}
+function minusCampesina(campi){
+    const camp = campi.qty--
     // console.log(camp)
     return camp
 }
@@ -98,6 +96,10 @@ function counterRancherita(ranchi){
     const ranch = ranchi.qty++
     return ranch
 }
+function minusRancherita(ranchi){
+    const ranch = ranchi.qty--
+    return ranch
+}
 
 // Picarona counter 
 var picarona = {
@@ -106,6 +108,10 @@ var picarona = {
 }
 function counterPicarona(pica){
     const pic = pica.qty++
+    return pic
+}
+function minusPicarona(pica){
+    const pic = pica.qty--
     return pic
 }
 
@@ -159,3 +165,75 @@ function pedido(){
     console.log(url)
     // return url
 }
+
+function addCart(){
+
+    const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa]
+    let pedido = []
+    for (let i = 0; i<productos.length; i++){
+        if (productos[i].qty > 1  ){
+            pedido.push(productos[i])
+        }
+    }
+    printCart(pedido)
+    return pedido
+}
+
+function printCart(pedido){
+    const carrito = document.getElementById("carritoLista")
+    const html = pedido.map(function(productos){
+        return ` 
+        <div class="list-item row">
+        <p style="overflow:hidden" class="K2D white align-left col-8">${productos.name}</p>
+        <div class="col-4">
+            <div class="row">
+                <span class="bebas col-4 cart-btn">-</span>
+                <p class="K2D white align-center col-4">${productos.qty-1}</p>
+                <span class="bebas col-4 cart-btn">+</span>
+            </div>    
+        </div>
+        </div>
+        
+        `
+    })
+    carrito.innerHTML = html
+}
+
+var $window = $(window);
+var window_height = $window.height();
+
+$(document).ready(function(){
+    $(cart).on("click",function(){
+  
+      if ($(carritoContainer).height() == 0) {
+        
+        $(carritoContainer).animate({
+            height: window_height-100,
+            width: '90%',
+            opacity: '100%'
+        },"500");
+  
+  
+      } else {
+  
+        $(carritoContainer).animate({
+          height: '0px',
+          width: '0%',
+          opacity: '0%'
+        },"slow");
+
+      
+      }
+  
+    });
+  
+  });
+
+// let carrito= {
+//     campesina: counterCampesina(),
+//     rancherita: counterRancherita(),
+//     picarona: counterPicarona(),
+//     melosa: counterMelosa(),
+//     granjerita: counterGranjerita(),
+//     caprichosa: counterCaprichosa(capi),
+// }

@@ -287,6 +287,9 @@ h3{
         width: 75%;
     }
 
+    .row-3{
+        height: calc(3/12*100%);
+    }
     .row-4{
         height: calc(4/12*100%);
     }
@@ -301,6 +304,9 @@ h3{
     }
     .row-8{
         height: calc(8/12*100%);
+    }
+    .row-9{
+        height: calc(9/12*100%);
     }
 
     /* Distribution */
