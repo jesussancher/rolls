@@ -145,22 +145,17 @@ function counterCaprichosa(capi){
 function pedido(){
     const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa]
     let pedido = []
-    let psudoLink = ''
-    let pseudo = []
-    let link = ''
     for (let i = 0; i<productos.length; i++){
-        pedido[i] = []
+        // pedido[i] = []
         if (productos[i].qty > 1  ){
-            pedido[i].push(productos[i].qty-1,productos[i].name+"s")
+            pedido.push(`${productos[i].qty-1}%20${productos[i].name+"s"}`)
         } 
 
     }
-
-    // for (let o = 0; o < pedido.length; o++){
-    //     if(o%2  == 0){
-    //         pseudo[o] = 
-    //     }
-    // }
-    const url = "https://api.whatsapp.com/send?phone=573183147984&text=%C2%A1Hola!%0AQuiero%3A%0A1%20Rancherita%2C%202%20Picaronas%20y%204%20Caprichosas.%0AGracias"
-    console.log(pedido)
+    let linkWa = pedido.join('%0A')
+    const url = "https://api.whatsapp.com/send?phone=573183147984&text=%C2%A1Hola!%0AQuiero%3A%0A"+linkWa+"%0AGracias"
+    const a = document.getElementById("cart")
+    a.href = url
+    console.log(url)
+    // return url
 }
