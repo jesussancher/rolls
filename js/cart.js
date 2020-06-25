@@ -35,34 +35,100 @@ function addItem(id){
     const labelCart = document.getElementById("counterCart")
     // const campesina = document.getElementById("campesina")
     switch(id){
+        // Campesina
         case 'addCampesina':
         counterCampesina(campesina) 
         count ++ 
         break;
 
+        case 'plusCampesina':
+        counterCampesina(campesina) 
+        count ++ 
+        break;
+
+        case 'lessCampesina':
+        minusCampesina(campesina) 
+        count -- 
+        break;
+
+        // Picaron
         case 'addPicarona': 
         counterPicarona(picarona)
         count ++
         break;
+
+        case 'plusPicarona': 
+        counterPicarona(picarona)
+        count ++
+        break;
+
+        case 'lessPicarona': 
+        minusPicarona(picarona)
+        count --
+        break;
         
+        // Rancherita
         case 'addRancherita': 
         counterRancherita(rancherita)
         count ++
         break;
 
+        case 'plusRancherita': 
+        counterRancherita(rancherita)
+        count ++
+        break;
+
+        case 'lessRancherita': 
+        minusRancherita(rancherita)
+        count --
+        break;
+
+        // Melosa
         case 'addMelosa':
         counterMelosa(melosa) 
         count ++
         break;
 
+        case 'plusMelosa':
+        counterMelosa(melosa) 
+        count ++
+        break;
+
+        case 'lessMelosa':
+        minusMelosa(melosa) 
+        count --
+        break;
+
+        // Granjerita
         case 'addGranjerita': 
         counterGranjerita(granjerita)
+        count ++
+        break;
+
+        case 'plusGranjerita': 
+        counterGranjerita(granjerita)
+        count ++
+        break;
+
+        case 'lessGranjerita': 
+        minusGranjerita(granjerita)
+        count --
+        break;
+
+        // Caprichosa
+        case 'plusCaprichosa': 
+        counterCaprichosa(caprichosa)
         count ++
         break;
 
         case 'addCaprichosa': 
         counterCaprichosa(caprichosa)
         count ++
+        break;
+
+        case 'lessCaprichosa': 
+        minusCaprichosa(caprichosa)
+        count --
         break;
     }
     const html = `${count}` 
@@ -124,6 +190,10 @@ function counterMelosa(capi){
     const mel = capi.qty++
     return mel
 }
+function minusMelosa(pica){
+    const pic = pica.qty--
+    return pic
+}
 
 // Granjerita counter
 var granjerita = {
@@ -133,6 +203,10 @@ var granjerita = {
 function counterGranjerita(capi){
     const granj = capi.qty++
     return granj
+}
+function minusGranjerita(pica){
+    const pic = pica.qty--
+    return pic
 }
 
 // Caprichosa counter
@@ -145,7 +219,10 @@ function counterCaprichosa(capi){
     // console.log(cap)
     return qty
 }
-
+function minusCaprichosa(pica){
+    const pic = pica.qty--
+    return pic
+}
 
 
 function pedido(){
@@ -160,7 +237,7 @@ function pedido(){
     }
     let linkWa = pedido.join('%0A')
     const url = "https://api.whatsapp.com/send?phone=573183147984&text=%C2%A1Hola!%0AQuiero%3A%0A"+linkWa+"%0AGracias"
-    const a = document.getElementById("cart")
+    const a = document.getElementById("agregarMas")
     a.href = url
     console.log(url)
     // return url
@@ -187,16 +264,23 @@ function printCart(pedido){
         <p style="overflow:hidden" class="K2D white align-left col-8">${productos.name}</p>
         <div class="col-4">
             <div class="row">
-                <span class="bebas col-4 cart-btn">-</span>
+                <span id="less${productos.name}" onclick="addItem(id),addCart()" class="bebas col-4 cart-btn">-</span>
                 <p class="K2D white align-center col-4">${productos.qty-1}</p>
-                <span class="bebas col-4 cart-btn">+</span>
+                <span id="plus${productos.name}" onclick="addItem(id),addCart()" class="bebas col-4 cart-btn">+</span>
             </div>    
         </div>
         </div>
         
         `
     })
+    const addButton = `
+    <div style="border-bottom: 0 !important" class="list-item align-center">
+        <a id="agregarMas" target="_blank" onclick="pedido()" class="add-btn K2D orange">Continuar</a>
+    </div>
+    `
+    html.push(addButton)
     carrito.innerHTML = html
+    // console.log(pedido)
 }
 
 var $window = $(window);
@@ -238,9 +322,21 @@ $(document).ready(function(){
       }
   
     });
-  
+
   });
 
+  function hideCart(){
+    const cart = document.getElementById("mainCarrito")
+    const invisibleClass = cart.classList.contains("invisible")
+
+    if (invisibleClass){
+
+    }else{
+        cart.classList.add("invisible")
+        cart.classList.remove("visible")
+    }
+}
+  
 // let carrito= {
 //     campesina: counterCampesina(),
 //     rancherita: counterRancherita(),

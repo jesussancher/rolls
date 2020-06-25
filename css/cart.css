@@ -103,3 +103,11 @@ color: #000;
   border-radius: 50%;
   padding-top: 2px;
 }
+.add-btn{
+  padding: 10px 20px;
+  border-radius: 10px;
+  border:solid 1px var(--primary-orange);
+  font-size: 15px;
+  color: #000;
+  cursor: pointer;
+}
