@@ -292,7 +292,7 @@ $(document).ready(function(){
       if ($(carritoContainer).height() == 0) {
         
         $(mainCarrito).animate({
-            height: window_height+5,
+            height: window_height+100,
             width: '100%',
             opacity: '100%'
         },"500");
