@@ -233,7 +233,10 @@ function minusCaprichosa(pica){
 
 function pedido(){
     const name = document.getElementById("name")
-    const adress = document.getElementById("adress")
+    const adress1 = document.getElementById("adress1").value
+    const adress2 = document.getElementById("adress2").value
+    const pAdress1 = adress1.replace(/\s/g,'%20')
+    const pAdress2 = adress2.replace(/\s/g,'%20')
     const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa]
     let pedido = []
     for (let i = 0; i<productos.length; i++){
@@ -244,7 +247,7 @@ function pedido(){
 
     }
     let linkWa = pedido.join('%0A')
-    const url = "https://api.whatsapp.com/send?phone=573183147984&text=%C2%A1Hola!%20Soy%20"+name.value+"%0AQuiero%3A%0A"+linkWa+"%0APara "+adress.value+"%0AGracias"
+    const url = "https://api.whatsapp.com/send?phone=573183147984&text=%C2%A1Hola!%20Soy%20"+name.value+"%0AQuiero%3A%0A"+linkWa+"%0APara "+pAdress1+"%20No%20"+pAdress2+"%0AGracias"
     const a = document.getElementById("confirmar")
     a.href = url
     console.log(url)

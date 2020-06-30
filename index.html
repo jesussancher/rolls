@@ -266,8 +266,12 @@
                     <form action="/action_page.php">
                         <label for="name" class="K2D orange">¿Cómo te llamas?</label><br><br>
                         <input type="text" class="cart-input white w-80" id="name" name="name" placeholder=" Ej: Pedro Rodríguez" required><br><br>
-                        <label for="adress" class="K2D orange">¿Dónde debemos ir?</label><br><br>
-                        <input type="text" class="cart-input white w-80" id="adress" name="address" placeholder=" Dirección" required><br><br>
+                        <label for="adress1" class="K2D orange">¿Dónde debemos ir?</label><br><br>
+                        <div class="row">
+                            <input type="text" class="cart-input white col-6" id="adress1" name="address1" placeholder=" Ej: Carrera 23" required><br><br>
+                            <p class="col-2 K2D orange" style="padding:0px 4px 0px 3px">#</p>
+                            <input type="text" class="cart-input white col-4" id="adress2" name="address2" placeholder=" 20 - 18" required><br><br>
+                        </div>
                         <br><br>
                         <a id="confirmar" target="_blank" onclick="pedido()" class="add-btn K2D orange">Confirmar</a>
                     </form>
