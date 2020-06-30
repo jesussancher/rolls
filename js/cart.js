@@ -232,6 +232,8 @@ function minusCaprichosa(pica){
 
 
 function pedido(){
+    const name = document.getElementById("name")
+    const adress = document.getElementById("adress")
     const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa]
     let pedido = []
     for (let i = 0; i<productos.length; i++){
@@ -242,8 +244,8 @@ function pedido(){
 
     }
     let linkWa = pedido.join('%0A')
-    const url = "https://api.whatsapp.com/send?phone=573183147984&text=%C2%A1Hola!%0AQuiero%3A%0A"+linkWa+"%0AGracias"
-    const a = document.getElementById("agregarMas")
+    const url = "https://api.whatsapp.com/send?phone=573183147984&text=%C2%A1Hola!%20Soy%20"+name.value+"%0AQuiero%3A%0A"+linkWa+"%0APara "+adress.value+"%0AGracias"
+    const a = document.getElementById("confirmar")
     a.href = url
     console.log(url)
     // return url
@@ -263,6 +265,8 @@ function addCart(){
 }
 
 function printCart(pedido){
+    const precios = document.getElementById("carritoContainer")
+    const datos = document.getElementById("carritoDatos")
     const carrito = document.getElementById("carritoLista")
     let total = 0
     let printTotal = ''
@@ -295,7 +299,7 @@ function printCart(pedido){
 
     const addButton = `
     <div style="border-bottom: 0 !important" class="list-item align-center">
-        <a id="agregarMas" target="_blank" onclick="pedido()" class="add-btn K2D orange">Continuar</a>
+        <a id="agregarMas" target="_blank" onclick="printInput()" class="add-btn K2D orange">Continuar</a>
     </div>
     `
 
@@ -304,6 +308,19 @@ function printCart(pedido){
     carrito.innerHTML = html
     // console.log(pedido)
 }
+
+
+function printInput(){
+    const precios = document.getElementById("carritoContainer")
+    const datos = document.getElementById("carritoDatos")
+    const carrito = document.getElementById("carritoDatos")
+
+    datos.classList.remove("invisible")
+    precios.classList.add("invisible")
+    datos.classList.add("visible")
+}
+
+
 
 var $window = $(window);
 var window_height = $window.height();
@@ -324,6 +341,12 @@ $(document).ready(function(){
             width: '90%',
             opacity: '100%'
         },"500");
+
+        $(carritoDatos).animate({
+            height: window_height-100,
+            width: '90%',
+            opacity: '100%'
+        },"500");
   
   
       } else {
@@ -339,6 +362,12 @@ $(document).ready(function(){
           width: '0%',
           opacity: '0%'
         },"slow");
+
+        $(carritoDatos).animate({
+            height: '0px',
+            width: '0%',
+            opacity: '0%'
+          },"slow");
 
       
       }

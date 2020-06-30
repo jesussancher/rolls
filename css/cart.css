@@ -45,7 +45,7 @@ color: #000;
   }
 
   .visible{
-    display: inline-block;
+    display: inline-block !important;
     opacity: 1;  
     -moz-transition: opacity 500ms linear;
     -webkit-transition: opacity 500ms linear;
