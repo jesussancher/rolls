@@ -62,18 +62,18 @@ color: #000;
     transition: opacity 2500ms linear;
   }
 
-/* .cart-container{
+.cart-container{
   opacity: 0;
   position: fixed;
   bottom:75px;
   right: 5%;
   width: 0%;
   height: 0px;
-  background-color: #000;
-  border: solid 1px var(--primary-orange);
-  border-radius: 25px;
+  /* background-color: #000; */
+  /* border: solid 1px var(--primary-orange); */
+  /* border-radius: 25px; */
   z-index: 370;
-} */
+}
 .main-container{
   opacity: 0;
   position: fixed;
