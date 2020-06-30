@@ -140,7 +140,8 @@ function addItem(id){
 // Campesina counteer
 var campesina = {
     name: "Campesina",
-    qty: 1
+    qty: 1,
+    price: 5000
 }
 function counterCampesina(campi){
     const camp = campi.qty++
@@ -156,7 +157,8 @@ function minusCampesina(campi){
 // Rancherita counter
 var rancherita = {
     name: "Rancherita",
-    qty: 1
+    qty: 1,
+    price: 5000
 }
 function counterRancherita(ranchi){
     const ranch = ranchi.qty++
@@ -170,7 +172,8 @@ function minusRancherita(ranchi){
 // Picarona counter 
 var picarona = {
     name: "Picarona",
-    qty: 1
+    qty: 1,
+    price: 5000
 }
 function counterPicarona(pica){
     const pic = pica.qty++
@@ -184,7 +187,8 @@ function minusPicarona(pica){
 // Melosa counter
 var melosa = {
     name: "Melosa",
-    qty: 1
+    qty: 1,
+    price: 5000
 }
 function counterMelosa(capi){
     const mel = capi.qty++
@@ -198,7 +202,8 @@ function minusMelosa(pica){
 // Granjerita counter
 var granjerita = {
     name: "Granjerita",
-    qty: 1
+    qty: 1,
+    price: 5000
 }
 function counterGranjerita(capi){
     const granj = capi.qty++
@@ -212,7 +217,8 @@ function minusGranjerita(pica){
 // Caprichosa counter
 var caprichosa = {
     name: "Caprichosa",
-    qty: 1
+    qty: 1,
+    price: 5000
 }
 function counterCaprichosa(capi){
     const qty = capi.qty++
@@ -258,11 +264,15 @@ function addCart(){
 
 function printCart(pedido){
     const carrito = document.getElementById("carritoLista")
+    let total = 0
+    let printTotal = ''
     const html = pedido.map(function(productos){
-        return ` 
+        total = total + productos.price*(productos.qty-1)
+        printTotal = '$'+total
+        return (total,` 
         <div class="list-item row">
-        <p style="overflow:hidden" class="K2D white align-left col-8">${productos.name}</p>
-        <div class="col-4">
+        <p style="overflow:hidden" class="K2D white align-left col-7">${productos.name}</p>
+        <div class="col-5">
             <div class="row">
                 <span id="less${productos.name}" onclick="addItem(id),addCart()" class="bebas col-4 cart-btn">-</span>
                 <p class="K2D white align-center col-4">${productos.qty-1}</p>
@@ -271,14 +281,26 @@ function printCart(pedido){
         </div>
         </div>
         
-        `
+        `)
     })
+
+    const addTotal = `
+        <div class="list-item row">
+            <p style="overflow:hidden; font-weight=700;" class="K2D orange align-left col-8">TOTAL</p>
+            <div class="col-4 align-center">
+                <p class="K2D white align-center col-4">${printTotal}</p>
+            </div>
+        </div>
+        `
+
     const addButton = `
     <div style="border-bottom: 0 !important" class="list-item align-center">
         <a id="agregarMas" target="_blank" onclick="pedido()" class="add-btn K2D orange">Continuar</a>
     </div>
     `
-    html.push(addButton)
+
+    // html.push(addTotal)
+    html.push(addTotal,addButton)
     carrito.innerHTML = html
     // console.log(pedido)
 }
