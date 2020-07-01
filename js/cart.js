@@ -372,8 +372,8 @@ function printInput(){
 function printCounter(id1,id2,sp1,sp2){
     const minus = document.getElementById(id1)
     const label = document.getElementById(id2)
-    const space1 = document.getElementById(sp1)
-    const space2 = document.getElementById(sp2)
+    const space1 = document.getElementsByClassName(sp1)
+    const space2 = document.getElementsByClassName(sp2)
 
     if (label.innerHTML > 0){
         minus.classList.remove("invisible")
