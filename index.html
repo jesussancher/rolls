@@ -86,7 +86,17 @@
 
                         </div>
                         <div class="product-content row-4">
-                            <a onclick="showCart(),addItem(id)" class="btn orange K2D" id="addCampesina">Agregar</a>
+                            <div class="row">
+                                <span class="col-8"></span>
+                                    <span class="row w-100">
+                                            <span id="space1" style="opacity: 0;" class="col-3 cart-btn"></span>
+                                            <span id="lessCampesina" onclick="addItem(id),addCart(),printCounter('lessCampesina','labelCamp','space1','space2')" class="col-3 bebas cart-btn invisible">-</span>
+                                            <a onclick="showCart(),addItem(id),printCounter('lessCampesina','labelCamp','space1','space2')" class="btn orange K2D" id="addCampesina">Agregar</a>
+                                            <p id="labelCamp" class="K2D white align-center col-1 invisible"></p>
+                                            <p id="space2" class="K2D white align-center col-1" style="opacity:0"></p>
+                                    </span>
+                                <span class="col-8"></span>
+                            </div>
                         </div>
                     </div>
                     <!-- Picarona -->
@@ -95,7 +105,15 @@
                             <img class="w-80" src="assets/images/Rolls/Picarona.png"/>
                         </div>
                         <div class="product-content row-4">
-                            <a onclick="showCart(),addItem(id)" class="btn orange K2D" id="addPicarona">Agregar</a>
+                            <div class="row">
+                                <span class="col-8"></span>
+                                    <span class="row w-100">
+                                            <span id="lessPicarona" onclick="addItem(id),addCart()" class="col-3 bebas cart-btn">-</span>
+                                            <a onclick="showCart(),addItem(id)" class="btn orange K2D" id="addPicarona">Agregar</a>
+                                            <p id="labelPica" class="K2D white align-center col-1"></p>
+                                    </span>
+                                <span class="col-8"></span>
+                            </div>
                         </div>
                     </div>
                     <!-- Rancherita -->
@@ -104,7 +122,16 @@
                             <img class="w-80" src="assets/images/Rolls/Rancherita.png"/>
                         </div>
                         <div class="product-content row-4">
-                            <a onclick="showCart(),addItem(id)" class="btn orange K2D" id="addRancherita">Agregar</a>
+                            <div class="row">
+                                <span class="col-8"></span>
+                                    <span class="row w-100">
+                                            <span id="lessRancherita" onclick="addItem(id),addCart()" class="col-3 bebas cart-btn">-</span>
+                                            <a onclick="showCart(),addItem(id)" class="btn orange K2D" id="addRancherita">Agregar</a>
+                                            <p id="labelRanch" class="K2D white align-center col-1"></p>
+                                    </span>
+                                <span class="col-8"></span>
+                            </div>
+                            
                         </div>
                     </div>
                     <!-- Caprichosa -->
@@ -263,7 +290,7 @@
                 </div>
 
                 <div id="carritoDatos" class="list-container row-9 align-center">
-                    <form action="/action_page.php">
+                    <form>
                         <label for="name" class="K2D orange">¿Cómo te llamas?</label><br><br>
                         <input type="text" class="cart-input white w-80" id="name" name="name" placeholder=" Ej: Pedro Rodríguez" required><br><br>
                         <label for="adress1" class="K2D orange">¿Dónde debemos ir?</label><br><br>
@@ -299,7 +326,7 @@
                 <a class="bg-orange white K2D btn" href="/assets/Rolls2020.pdf" target="_blank">Nuestro menú <i class="fas fa-file-download"></i></a>
             </div>
             <div class="align-right delivery col-6"> 
-                <a href="#" target="_blank" class="fa fa-facebook"></a><a href="#" target="_blank" class="fa fa-instagram"></a><a href="#" target="_blank" class="fa fa-whatsapp"></a>
+                <a href="https://www.facebook.com/RollsNeiva/" target="_blank" class="fa fa-facebook"></a><a href="https://www.instagram.com/RollsNeiva/" target="_blank" class="fa fa-instagram"></a><a href="#" target="_blank" class="fa fa-whatsapp"></a>
             </div>  
         </div>
     <div class="footer2 align-center">

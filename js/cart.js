@@ -131,11 +131,17 @@ function addItem(id){
         count --
         break;
     }
-    const html = `${count}` 
+    const html = `${count}`
+    if (count > 0){
     labelCart.innerHTML = html
     // console.log(carrito)
     console.log(id)
     // printCart()
+    }else{
+        count = 0
+        labelCart.innerHTML = count
+    }
+    
 }
 // Campesina counteer
 var campesina = {
@@ -144,13 +150,24 @@ var campesina = {
     price: 5000
 }
 function counterCampesina(campi){
+    const label = document.getElementById("labelCamp")
     const camp = campi.qty++
     // console.log(camp)
+    label.innerHTML = campi.qty-1
     return camp
 }
 function minusCampesina(campi){
+    const label = document.getElementById("labelCamp")
     const camp = campi.qty--
     // console.log(camp)
+    if (campi.qty > 0)
+    {
+        label.innerHTML = campi.qty-1
+    }else{
+        campi.qty = 1
+        label.innerHTML = 0
+    }
+    
     return camp
 }
 
@@ -161,11 +178,24 @@ var rancherita = {
     price: 5000
 }
 function counterRancherita(ranchi){
+    const label = document.getElementById("labelRanch")
     const ranch = ranchi.qty++
+    // console.log(camp)
+    label.innerHTML = ranchi.qty-1
     return ranch
 }
 function minusRancherita(ranchi){
+    const label = document.getElementById("labelRanch")
     const ranch = ranchi.qty--
+    // console.log(camp)
+    if (ranchi.qty > 0)
+    {
+        label.innerHTML = ranchi.qty-1
+    }else{
+        ranchi.qty = 1
+        label.innerHTML = 0
+    }
+    
     return ranch
 }
 
@@ -176,11 +206,26 @@ var picarona = {
     price: 5000
 }
 function counterPicarona(pica){
+    const label = document.getElementById("labelPica")
     const pic = pica.qty++
+    // console.log(camp)
+    label.innerHTML = pica.qty-1
+    // return camp
+    // const pic = pica.qty++
     return pic
 }
 function minusPicarona(pica){
+    const label = document.getElementById("labelPica")
     const pic = pica.qty--
+    // console.log(camp)
+    if (pica.qty > 0)
+    {
+        label.innerHTML = pica.qty-1
+    }else{
+        pica.qty = 1
+        label.innerHTML = 0
+    }
+    
     return pic
 }
 
@@ -221,6 +266,7 @@ var caprichosa = {
     price: 5000
 }
 function counterCaprichosa(capi){
+    
     const qty = capi.qty++
     // console.log(cap)
     return qty
@@ -323,7 +369,28 @@ function printInput(){
     datos.classList.add("visible")
 }
 
+function printCounter(id1,id2,sp1,sp2){
+    const minus = document.getElementById(id1)
+    const label = document.getElementById(id2)
+    const space1 = document.getElementById(sp1)
+    const space2 = document.getElementById(sp2)
 
+    if (label.innerHTML > 0){
+        minus.classList.remove("invisible")
+        label.classList.remove("invisible")
+        // minus.classList.add("visible")
+        // label.classList.add("visible")
+        space1.classList.add("invisible")
+        space2.classList.add("invisible")
+    }else{
+        minus.classList.add("invisible")
+        label.classList.add("invisible")
+        space1.classList.remove("invisible")
+        space2.classList.remove("invisible")
+        // space1.classList.add("visible")
+        // space2.classList.add("visible")
+    }
+}
 
 var $window = $(window);
 var window_height = $window.height();
