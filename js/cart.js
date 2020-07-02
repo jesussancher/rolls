@@ -493,6 +493,17 @@ $(document).ready(function(){
 
   });
 
+  if(/iPhone|iPod|Android|iPad/.test(window.navigator.platform)){
+    $(document)
+      .on('focus', 'textarea,input,select', function(e) {
+        $('.navbar.navbar-fixed-top').css('position', 'absolute');
+      })
+      .on('blur', 'textarea,input,select', function(e) {
+        $('.navbar.navbar-fixed-top').css('position', '');
+      });
+    }
+
+
   function hideCart(){
     const cart = document.getElementById("mainCarrito")
     const invisibleClass = cart.classList.contains("invisible")
