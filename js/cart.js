@@ -500,8 +500,9 @@ $(document).ready(function(){
         cart.classList.add("fix-fixed")
         
     }else{
-                $(this).focus();
+                // $(this).focus();
         
+        cart.classList.remove("fix-fixed")
     }
 })
   

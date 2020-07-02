@@ -83,7 +83,7 @@ color: #000;
   z-index: 220;
 }
 .fix-fixed{
-  bottom: 100px !important;
+  bottom: -100px !important;
 }
 
 .list-container{
