@@ -493,28 +493,17 @@ $(document).ready(function(){
 
   });
 
-  if(/iPhone|iPod|Android|iPad/.test(window.navigator.platform)){
-    $(document)
-      .on('focus', 'textarea,input,select', function(e) {
-        $('.navbar.navbar-fixed-top').css('position', 'absolute');
-      })
-      .on('blur', 'textarea,input,select', function(e) {
-        $('.navbar.navbar-fixed-top').css('position', '');
-      });
-    }
-
-
-  function hideCart(){
+  $(".cart-input").on("click","textarea",function(){
     const cart = document.getElementById("mainCarrito")
-    const invisibleClass = cart.classList.contains("invisible")
-
-    if (invisibleClass){
-
+    if ($(this).is( ":focus" )) {
+        
+        cart.classList.add("fix-fixed")
+        
     }else{
-        cart.classList.add("invisible")
-        cart.classList.remove("visible")
+                $(this).focus();
+        
     }
-}
+})
   
 // let carrito= {
 //     campesina: counterCampesina(),
