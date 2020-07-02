@@ -229,6 +229,38 @@ function minusPicarona(pica){
     return pic
 }
 
+
+// Caprichosa counter
+var caprichosa = {
+    name: "Caprichosa",
+    qty: 1,
+    price: 5000
+}
+function counterCaprichosa(capi){
+    const label = document.getElementById("labelCapi")
+    const cap = capi.qty++
+    // console.log(camp)
+    label.innerHTML = capi.qty-1
+    // return camp
+    // const pic = pica.qty++
+    return cap
+}
+function minusCaprichosa(capi){
+    const label = document.getElementById("labelCapi")
+    const cap = capi.qty--
+    // console.log(camp)
+    if (capi.qty > 0)
+    {
+        label.innerHTML = capi.qty-1
+    }else{
+        capi.qty = 1
+        label.innerHTML = 0
+    }
+    
+    return cap
+}
+
+
 // Melosa counter
 var melosa = {
     name: "Melosa",
@@ -236,12 +268,27 @@ var melosa = {
     price: 5000
 }
 function counterMelosa(capi){
-    const mel = capi.qty++
-    return mel
+    const label = document.getElementById("labelMel")
+    const cap = capi.qty++
+    // console.log(camp)
+    label.innerHTML = capi.qty-1
+    // return camp
+    // const pic = pica.qty++
+    return cap
 }
-function minusMelosa(pica){
-    const pic = pica.qty--
-    return pic
+function minusMelosa(capi){
+    const label = document.getElementById("labelMel")
+    const cap = capi.qty--
+    // console.log(camp)
+    if (capi.qty > 0)
+    {
+        label.innerHTML = capi.qty-1
+    }else{
+        capi.qty = 1
+        label.innerHTML = 0
+    }
+    
+    return cap
 }
 
 // Granjerita counter
@@ -251,30 +298,30 @@ var granjerita = {
     price: 5000
 }
 function counterGranjerita(capi){
-    const granj = capi.qty++
-    return granj
+    const label = document.getElementById("labelGran")
+    const cap = capi.qty++
+    // console.log(camp)
+    label.innerHTML = capi.qty-1
+    // return camp
+    // const pic = pica.qty++
+    return cap
 }
-function minusGranjerita(pica){
-    const pic = pica.qty--
-    return pic
+function minusGranjerita(capi){
+    const label = document.getElementById("labelGran")
+    const cap = capi.qty--
+    // console.log(camp)
+    if (capi.qty > 0)
+    {
+        label.innerHTML = capi.qty-1
+    }else{
+        capi.qty = 1
+        label.innerHTML = 0
+    }
+    
+    return cap
 }
 
-// Caprichosa counter
-var caprichosa = {
-    name: "Caprichosa",
-    qty: 1,
-    price: 5000
-}
-function counterCaprichosa(capi){
-    
-    const qty = capi.qty++
-    // console.log(cap)
-    return qty
-}
-function minusCaprichosa(pica){
-    const pic = pica.qty--
-    return pic
-}
+
 
 
 function pedido(){
@@ -372,8 +419,8 @@ function printInput(){
 function printCounter(id1,id2,sp1,sp2){
     const minus = document.getElementById(id1)
     const label = document.getElementById(id2)
-    const space1 = document.getElementsByClassName(sp1)
-    const space2 = document.getElementsByClassName(sp2)
+    const space1 = document.getElementById(sp1)
+    const space2 = document.getElementById(sp2)
 
     if (label.innerHTML > 0){
         minus.classList.remove("invisible")

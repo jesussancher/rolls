@@ -62,9 +62,9 @@
                     <div class="col-4"></div>
                     <div class="col-8 pt-40">
                         <h3 class="orange bebas align-right delivery">Felicidad</h3>
-                        <h3 class="bebas white align-right delivery" style="font-size: 28px;" class="fas fa-phone"></i>a la puerta de casa</h3>
+                        <h3 class="bebas white align-right delivery" style="font-size: 28px;" class="fas fa-phone"></i>a la puerta de tu casa</h3>
                         <p style="line-height: 35px;" class="K2D white align-right delivery"><i class="far fa-calendar"></i>  Martes - Domingo</p>
-                        <p class="K2D white align-right delivery"><i class="far fa-clock"></i> 4:00pm - 10:30pm</p>
+                        <p class="K2D white align-right delivery"><i class="far fa-clock"></i> 4:00pm - 11:30pm</p>
                         
                     </div>
                 </div>
@@ -89,11 +89,11 @@
                             <div class="row">
                                 <span class="col-8"></span>
                                     <span class="row w-100">
-                                            <span style="opacity: 0;" class="space-1 col-3 cart-btn"></span>
+                                            <span id="space-1" style="opacity: 0;" class="col-3 cart-btn"></span>
                                             <span id="lessCampesina" onclick="addItem(id),addCart(),printCounter('lessCampesina','labelCamp','space-1','space-2')" class="col-3 bebas cart-btn invisible">-</span>
                                             <a onclick="showCart(),addItem(id),printCounter('lessCampesina','labelCamp','space-1','space-2')" class="btn orange K2D" id="addCampesina">Agregar</a>
                                             <p id="labelCamp" class=" K2D white align-center col-1 invisible"></p>
-                                            <p class="space-2 K2D white align-center col-1" style="opacity:0"></p>
+                                            <p id="space-2" class="K2D white align-center col-1" style="opacity:0"></p>
                                     </span>
                                 <span class="col-8"></span>
                             </div>
@@ -108,11 +108,11 @@
                             <div class="row">
                                 <span class="col-8"></span>
                                     <span class="row w-100">
-                                            <span style="opacity: 0;" class="col-3 space-1 cart-btn"></span>
-                                            <span id="lessPicarona" onclick="addItem(id),addCart(),printCounter('lessPicarona','labelPica','space-1','space-2')" class="col-3 bebas cart-btn invisible">-</span>
-                                            <a onclick="showCart(),addItem(id),printCounter('lessPicarona','labelPica','space-1','space-2')" class="btn orange K2D" id="addPicarona">Agregar</a>
+                                            <span id="space-3" style="opacity: 0;" class="col-3 cart-btn"></span>
+                                            <span id="lessPicarona" onclick="addItem(id),addCart(),printCounter('lessPicarona','labelPica','space-3','space-4')" class="col-3 bebas cart-btn invisible">-</span>
+                                            <a onclick="showCart(),addItem(id),printCounter('lessPicarona','labelPica','space-3','space-4')" class="btn orange K2D" id="addPicarona">Agregar</a>
                                             <p id="labelPica" class="K2D white align-center col-1 invisible"></p>
-                                            <p  class="space-2 K2D white align-center col-1" style="opacity:0"></p>
+                                            <p  id="space-4" class="K2D white align-center col-1" style="opacity:0"></p>
                                     </span>
                                 <span class="col-8"></span>
                             </div>
@@ -127,9 +127,11 @@
                             <div class="row">
                                 <span class="col-8"></span>
                                     <span class="row w-100">
-                                            <span id="lessRancherita" onclick="addItem(id),addCart()" class="col-3 bebas cart-btn">-</span>
-                                            <a onclick="showCart(),addItem(id)" class="btn orange K2D" id="addRancherita">Agregar</a>
-                                            <p id="labelRanch" class="K2D white align-center col-1"></p>
+                                            <span id="space-5" style="opacity: 0;" class="col-3 cart-btn"></span>
+                                            <span id="lessRancherita" onclick="addItem(id),addCart(),printCounter('lessRancherita','labelRanch','space-5','space-6')" class="col-3 bebas cart-btn invisible">-</span>
+                                            <a onclick="showCart(),addItem(id),printCounter('lessRancherita','labelRanch','space-5','space-6')" class="btn orange K2D" id="addRancherita">Agregar</a>
+                                            <p id="labelRanch" class="K2D white align-center col-1 invisible"></p>
+                                            <p  id="space-6" class="K2D white align-center col-1" style="opacity:0"></p>
                                     </span>
                                 <span class="col-8"></span>
                             </div>
@@ -142,7 +144,17 @@
                             <img class="w-80" src="assets/images/Rolls/Caprichosa.png"/>
                         </div>
                         <div class="product-content row-4">
-                            <a onclick="showCart(),addItem(id)" class="btn orange K2D" id="addCaprichosa">Agregar</a>
+                            <div class="row">
+                                <span class="col-8"></span>
+                                    <span class="row w-100">
+                                            <span id="space-7" style="opacity: 0;" class="col-3 cart-btn"></span>
+                                            <span id="lessCaprichosa" onclick="addItem(id),addCart(),printCounter('lessCaprichosa','labelCapi','space-7','space-8')" class="col-3 bebas cart-btn invisible">-</span>
+                                            <a onclick="showCart(),addItem(id),printCounter('lessCaprichosa','labelCapi','space-7','space-8')" class="btn orange K2D" id="addCaprichosa">Agregar</a>
+                                            <p id="labelCapi" class="K2D white align-center col-1 invisible"></p>
+                                            <p  id="space-8" class="K2D white align-center col-1" style="opacity:0"></p>
+                                    </span>
+                                <span class="col-8"></span>
+                            </div>
                         </div>
                     </div>
                     <!-- Melosa -->
@@ -151,7 +163,17 @@
                             <img class="w-80" src="assets/images/Rolls/Melosa.png"/>
                         </div>
                         <div class="product-content row-4">
-                            <a onclick="showCart(),addItem(id)" class="btn orange K2D" id="addMelosa">Agregar</a>
+                            <div class="row">
+                                <span class="col-8"></span>
+                                    <span class="row w-100">
+                                            <span id="space-9" style="opacity: 0;" class="col-3 cart-btn"></span>
+                                            <span id="lessMelosa" onclick="addItem(id),addCart(),printCounter('lessMelosa','labelMel','space-9','space-10')" class="col-3 bebas cart-btn invisible">-</span>
+                                            <a onclick="showCart(),addItem(id),printCounter('lessMelosa','labelMel','space-9','space-10')" class="btn orange K2D" id="addMelosa">Agregar</a>
+                                            <p id="labelMel" class="K2D white align-center col-1 invisible"></p>
+                                            <p  id="space-10" class="K2D white align-center col-1" style="opacity:0"></p>
+                                    </span>
+                                <span class="col-8"></span>
+                            </div>
                         </div>
                     </div>
                     <!-- Granjerita -->
@@ -160,7 +182,17 @@
                             <img class="w-80" src="assets/images/Rolls/Granjerita.png"/>
                         </div>
                         <div class="product-content row-4">
-                            <a onclick="showCart(),addItem(id)" class="btn orange K2D" id="addGranjerita">Agregar</a>
+                            <div class="row">
+                                <span class="col-8"></span>
+                                    <span class="row w-100">
+                                            <span id="space-11" style="opacity: 0;" class="col-3 cart-btn"></span>
+                                            <span id="lessGranjerita" onclick="addItem(id),addCart(),printCounter('lessGranjerita','labelGran','space-11','space-12')" class="col-3 bebas cart-btn invisible">-</span>
+                                            <a onclick="showCart(),addItem(id),printCounter('lessGranjerita','labelGran','space-11','space-12')" class="btn orange K2D" id="addGranjerita">Agregar</a>
+                                            <p id="labelGran" class="K2D white align-center col-1 invisible"></p>
+                                            <p  id="space-12" class="K2D white align-center col-1" style="opacity:0"></p>
+                                    </span>
+                                <span class="col-8"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
