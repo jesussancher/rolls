@@ -491,20 +491,23 @@ $(document).ready(function(){
   
     });
 
+    $(".cart-input").on("click",function(){
+    
+        if ($(this).is( ":focus" )) {
+            
+            $("#mainCarrito").addClass("fix-fixed")
+            
+        }
+            $(".cart-input").focusout(function() {
+
+                $("#mainCarrito").removeClass("fix-fixed")
+              })
+        
+    })
+
   });
 
-  $(".cart-input").on("click","textarea",function(){
-    const cart = document.getElementById("mainCarrito")
-    if ($(this).is( ":focus" )) {
-        
-        cart.classList.add("fix-fixed")
-        
-    }else{
-                // $(this).focus();
-        
-        cart.classList.remove("fix-fixed")
-    }
-})
+  
   
 // let carrito= {
 //     campesina: counterCampesina(),
