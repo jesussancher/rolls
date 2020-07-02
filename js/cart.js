@@ -496,11 +496,16 @@ $(document).ready(function(){
         if ($(this).is( ":focus" )) {
             
             $("#mainCarrito").addClass("fix-fixed")
+            $("cart").addClass("invisible")
+            $("counterCart").addClass("invisible")
+
             
         }
             $(".cart-input").focusout(function() {
 
                 $("#mainCarrito").removeClass("fix-fixed")
+                $("cart").removeClass("invisible")
+                $("counterCart").removeClass("invisible")
               })
         
     })
