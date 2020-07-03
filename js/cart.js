@@ -328,8 +328,10 @@ function pedido(){
     const name = document.getElementById("name")
     const adress1 = document.getElementById("adress1").value
     const adress2 = document.getElementById("adress2").value
+    const barrio = document.getElementById("barrio").value
     const pAdress1 = adress1.replace(/\s/g,'%20')
     const pAdress2 = adress2.replace(/\s/g,'%20')
+    const pBarrio = barrio.replace(/\s/g,'%20')
     const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa]
     let pedido = []
     for (let i = 0; i<productos.length; i++){
@@ -340,7 +342,7 @@ function pedido(){
 
     }
     let linkWa = pedido.join('%0A')
-    const url = "https://api.whatsapp.com/send?phone=573183147984&text=%C2%A1Hola!%20Soy%20"+name.value+"%0AQuiero%3A%0A"+linkWa+"%0APara "+pAdress1+"%20No%20"+pAdress2+"%0AGracias"
+    const url = "https://api.whatsapp.com/send?phone=573183147984&text=%C2%A1Hola!%20Soy%20"+name.value+"%0AQuiero%3A%0A"+linkWa+"%0APara "+pAdress1+"%20No%20"+pAdress2+"%0AEn%20el%20barrio%20"+pBarrio+"%0AGracias"
     const a = document.getElementById("confirmar")
     a.href = url
     console.log(url)
@@ -509,6 +511,11 @@ $(document).ready(function(){
             $("#cart").removeClass("invisible")
             $("#counterCart").removeClass("invisible")
         })
+
+        $("#barrio").focusout(function() {
+            $("#confirmar").addClass("visible")
+            $("#confirmar").removeClass("invisible")
+        })
     })
 
     // $(function() {
@@ -521,8 +528,29 @@ $(document).ready(function(){
 
   });
 
+function confirmar(){
+    let ache = ["name", "adress1", "adress2", "barrio"]
+    let counter = 0
+    for (let i = 0; i < ache.length; i++){
+        const input = document.getElementById(ache[i])
+        
+        if(input.value != ''){
+            counter++
+        }else{
+            
+        }
+        
+    }
+    console.log(input.value)
+    if (counter = 4){
+        document.getElementById("confirmar").classList.remove("invisible");
+        document.getElementById("confirmar").classList.add("visible");
+
+    }
+    
+}
   
-  
+
 // let carrito= {
 //     campesina: counterCampesina(),
 //     rancherita: counterRancherita(),

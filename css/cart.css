@@ -84,7 +84,7 @@ color: #000;
 }
 .fix-fixed{
   top: -100px !important;
-  background-color: rgba(173, 32, 32, 0.93) !important;
+  /* background-color: rgba(173, 32, 32, 0.93) !important; */
   /* position: sticky; */
 }
 
