@@ -496,8 +496,10 @@ $(document).ready(function(){
         if ($(this).is( ":focus" )) {
             
             $("#mainCarrito").addClass("fix-fixed")
-            $("#cart").addClass("invisible")
-            $("#counterCart").addClass("invisible")
+            $(cart).removeClass("visible")
+            $(counterCart).removeClass("visible")
+            $(cart).addClass("invisible")
+            $(counterCart).addClass("invisible")
 
             
         }
@@ -506,8 +508,8 @@ $(document).ready(function(){
                 if ($(this).is( ":focus" )) {
                     
                     $("#mainCarrito").addClass("fix-fixed")
-                    $("#cart").addClass("invisible")
-                    $("#counterCart").addClass("invisible")
+                    $(cart).addClass("invisible")
+                    $(counterCart).addClass("invisible")
                 } else {
                     $("#mainCarrito").removeClass("fix-fixed")
                     $("#cart").removeClass("invisible")
