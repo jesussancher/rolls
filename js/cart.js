@@ -503,19 +503,25 @@ $(document).ready(function(){
 
             
         }
-            $(".cart-input").focusout(function() {
 
-                if ($(this).is( ":focus" )) {
+        $(".cart-input").focusout(function() {
+            $("#mainCarrito").removeClass("fix-fixed")
+            $("#cart").removeClass("invisible")
+            $("#counterCart").removeClass("invisible")
+        })
+            // $(".cart-input").focusout(function() {
+
+                // if ($(this).is( ":focus" )) {
                     
-                    $("#mainCarrito").addClass("fix-fixed")
-                    $(cart).addClass("invisible")
-                    $(counterCart).addClass("invisible")
-                } else {
-                    $("#mainCarrito").removeClass("fix-fixed")
-                    $("#cart").removeClass("invisible")
-                    $("#counterCart").removeClass("invisible")
-                }
-              })
+                //     $("#mainCarrito").addClass("fix-fixed")
+                //     $(cart).addClass("invisible")
+                //     $(counterCart).addClass("invisible")
+                // } 
+        // else {
+
+            
+        // }
+            //   })
         
     })
 
