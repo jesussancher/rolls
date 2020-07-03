@@ -343,7 +343,7 @@ function pedido(){
     }
     let linkWa = pedido.join('%0A')
     const url = "https://api.whatsapp.com/send?phone=573183147984&text=%C2%A1Hola!%20Soy%20"+name.value+"%0AQuiero%3A%0A"+linkWa+"%0APara "+pAdress1+"%20No%20"+pAdress2+"%0AEn%20el%20barrio%20"+pBarrio+"%0AGracias"
-    const a = document.getElementById("confirmar")
+    const a = document.getElementById("enviar")
     a.href = url
     console.log(url)
     // return url
@@ -366,6 +366,10 @@ function printCart(pedido){
     const precios = document.getElementById("carritoContainer")
     const datos = document.getElementById("carritoDatos")
     const carrito = document.getElementById("carritoLista")
+    const carritoTotal = document.getElementById("carritoListaTotal")
+    const gracias = document.getElementById("thanks")
+    const name = document.getElementById("name")
+
     let total = 0
     let printTotal = ''
     const html = pedido.map(function(productos){
@@ -386,6 +390,20 @@ function printCart(pedido){
         `)
     })
 
+    const html2 = pedido.map(function(productos){
+        const printTotalidad = '$ '+ productos.price*(productos.qty-1)
+        return (total,` 
+        <div class="list-item row">
+        <p class="K2D white align-center col-2">${productos.qty-1}</p>
+        <p style="overflow:hidden" class="K2D white align-left col-6">${productos.name}</p>
+        <p class="K2D white align-center col-4">${printTotalidad}</p>
+        </div>
+        
+        `)
+    })
+
+    const ty = "¡Gracias " + name.value.replace(/ .*/,'') + "!"
+        
     const addTotal = `
         <div class="list-item row">
             <p style="overflow:hidden; font-weight=700;" class="K2D orange align-left col-8">TOTAL</p>
@@ -401,9 +419,21 @@ function printCart(pedido){
     </div>
     `
 
+    const confirmButton = `
+    <div style="border-bottom: 0 !important" class="list-item align-center">
+        <a id="enviar" target="_blank" onclick="pedido()" class="add-btn K2D orange">Confirmar</a>
+    </div>
+    <br><br>
+    <a onclick="printBack('carritoTotal')" target="_blank"  style="cursor: pointer;" class="K2D white">Atrás</a>
+
+    `
+
     // html.push(addTotal)
     html.push(addTotal,addButton)
+    html2.push(addTotal,confirmButton)
+    carritoTotal.innerHTML = html2
     carrito.innerHTML = html
+    gracias.innerHTML = ty
     // console.log(pedido)
 }
 
@@ -411,11 +441,39 @@ function printCart(pedido){
 function printInput(){
     const precios = document.getElementById("carritoContainer")
     const datos = document.getElementById("carritoDatos")
-    const carrito = document.getElementById("carritoDatos")
 
     datos.classList.remove("invisible")
     precios.classList.add("invisible")
+    precios.classList.remove("visible")
     datos.classList.add("visible")
+}
+
+function printBack(id){
+    const precios = document.getElementById("carritoContainer")
+    const datos = document.getElementById("carritoDatos")
+    const back = document.getElementById(id)
+
+    if(id == 'carritoDatos'){
+        back.classList.add("invisible")
+        precios.classList.remove("invisible")
+        precios.classList.add("visible")
+        back.classList.remove("visible")
+    } else if (id == 'carritoTotal'){
+        back.classList.add("invisible")
+        datos.classList.remove("invisible")
+        datos.classList.add("visible")
+        back.classList.remove("visible")
+    }
+}
+
+function printTotal(){
+    const total = document.getElementById("carritoTotal")
+    const datos = document.getElementById("carritoDatos")
+
+    total.classList.remove("invisible")
+    datos.classList.add("invisible")
+    datos.classList.remove("visible")
+    total.classList.add("visible")
 }
 
 function printCounter(id1,id2,sp1,sp2){
@@ -466,6 +524,12 @@ $(document).ready(function(){
             width: '90%',
             opacity: '100%'
         },"500");
+
+        $(carritoTotal).animate({
+            height: window_height-100,
+            width: '90%',
+            opacity: '100%'
+        },"500");
   
   
       } else {
@@ -488,6 +552,11 @@ $(document).ready(function(){
             opacity: '0%'
           },"slow");
 
+        $(carritoTotal).animate({
+        height: '0px',
+        width: '0%',
+        opacity: '0%'
+        },"slow");
       
       }
   

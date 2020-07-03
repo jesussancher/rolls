@@ -323,7 +323,7 @@
                     <p class="K2D white">Queremos conocerte :)</p>
                 </div>
 
-                <div id="carritoDatos" class="list-container row-9 align-center">
+                <div class="list-container row-9 align-center">
                     <form id="input">
                         <label for="name" class="K2D orange">¿Cómo te llamas?</label><br><br>
                         <input type="text" class="cart-input white w-80" id="name" name="name" placeholder=" Ej: Pedro Rodríguez" required><br><br>
@@ -336,7 +336,10 @@
                         <br>
                         <input type="text" class="cart-input white col-5" id="barrio" name="barrio" placeholder=" Barrio" required><br><br>
                         <br>
-                        <a id="confirmar" onclick="pedido()" target="_blank"  class="add-btn K2D orange invisible">Confirmar</a>
+                        <a id="confirmar" onclick="printTotal()" target="_blank"  class="add-btn K2D orange invisible">Continuar</a>
+                        <br><br>
+                        <a onclick="printBack('carritoDatos')" target="_blank"  style="cursor: pointer;" class="K2D white">Atrás</a>
+
                     </form>
                 
                 </div>
@@ -345,6 +348,27 @@
 
                 </div>
             </div>
+
+
+            <div id="carritoTotal" class="cart-container column invisible">
+                <div style="padding-top:20px" class="w-100 row-2 align-center">
+                    <h3 id="thanks" class="bebas orange">¡Gracias</h3>
+                    <p class="K2D white">Hoy te enrollas de felicidad con:</p>
+                </div>
+
+                    
+                    <div id="carritoListaTotal" class="list-container row-9 align-center">
+                
+                    </div>
+                
+                
+                
+                <div class="row-1 align-center">
+                    <br>
+                    <p class="K2D orange">El pedido será realizado a través de un mensaje por WhatsApp</p>
+                </div>
+            </div>
+
                 
         </span>
         <!-- </div> -->
