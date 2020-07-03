@@ -491,7 +491,7 @@ $(document).ready(function(){
   
     });
 
-    $(".cart-input").on("click",function(){
+    $('.cart-input').on("focus",function(){
     
         if ($(this).is( ":focus" )) {
             
@@ -504,26 +504,20 @@ $(document).ready(function(){
             
         }
 
-        $(".cart-input").focusout(function() {
+        $(this).focusout(function() {
             $("#mainCarrito").removeClass("fix-fixed")
             $("#cart").removeClass("invisible")
             $("#counterCart").removeClass("invisible")
         })
-            // $(".cart-input").focusout(function() {
-
-                // if ($(this).is( ":focus" )) {
-                    
-                //     $("#mainCarrito").addClass("fix-fixed")
-                //     $(cart).addClass("invisible")
-                //     $(counterCart).addClass("invisible")
-                // } 
-        // else {
-
-            
-        // }
-            //   })
-        
     })
+
+    // $(function() {
+    $(".cart-input").on('keyup', function(e) {
+        if (e.which === 13) {
+        $(this).next('input').focus();
+        }
+    });
+    // });
 
   });
 
