@@ -130,6 +130,106 @@ function addItem(id){
         minusCaprichosa(caprichosa)
         count --
         break;
+
+
+
+
+
+        // Maracunassa
+        case 'plusMaracunassa': 
+        counterMaracunassa(maracunassa)
+        count ++
+        break;
+
+        case 'addMaracunassa': 
+        counterMaracunassa(maracunassa)
+        count ++
+        break;
+
+        case 'lessMaracunassa': 
+        minusMaracunassa(maracunassa)
+        count --
+        break;
+
+        // Naranana
+        case 'plusNaranana': 
+        counterNaranana(naranana)
+        count ++
+        break;
+
+        case 'addNaranana': 
+        counterNaranana(naranana)
+        count ++
+        break;
+
+        case 'lessNaranana': 
+        minusNaranana(naranana)
+        count --
+        break;
+
+        // Naranana
+        case 'plusTengerina': 
+        counterTangerina(tangerina)
+        count ++
+        break;
+
+        case 'addTangerina': 
+        counterTangerina(tangerina)
+        count ++
+        break;
+
+        case 'lessTangerina': 
+        minusNaranana(tangerina)
+        count --
+        break;
+
+         // Limonango
+         case 'plusLimonango': 
+         counterLimonango(limonango)
+         count ++
+         break;
+ 
+         case 'addLimonango': 
+         counterLimonango(limonango)
+         count ++
+         break;
+ 
+         case 'lessLimonango': 
+         minusLimonango(limonango)
+         count --
+         break;
+
+         // Citrinda
+         case 'plusCitrinda': 
+         counterCitrinda(citrinda)
+         count ++
+         break;
+ 
+         case 'addCitrinda': 
+         counterCitrinda(citrinda)
+         count ++
+         break;
+ 
+         case 'lessCitrinda': 
+         minusCitrinda(citrinda)
+         count --
+         break;
+
+         // Mentulada
+         case 'plusMentulada': 
+         counterMentulada(mentulada)
+         count ++
+         break;
+ 
+         case 'addMentulada': 
+         counterMentulada(mentulada)
+         count ++
+         break;
+ 
+         case 'lessMentulada': 
+         minusMentulada(mentulada)
+         count --
+         break;
     }
     const html = `${count}`
     if (count > 0){
@@ -322,7 +422,175 @@ function minusGranjerita(capi){
 }
 
 
+//Jugos 
 
+// Maracunassa counteer
+var maracunassa = {
+    name: "Maracunassa",
+    qty: 1,
+    price: 4000
+}
+function counterMaracunassa(campi){
+    const label = document.getElementById("labelMaracu")
+    const camp = campi.qty++
+    // console.log(camp)
+    label.innerHTML = campi.qty-1
+    return camp
+}
+function minusMaracunassa(campi){
+    const label = document.getElementById("labelMaracu")
+    const camp = campi.qty--
+    // console.log(camp)
+    if (campi.qty > 0)
+    {
+        label.innerHTML = campi.qty-1
+    }else{
+        campi.qty = 1
+        label.innerHTML = 0
+    }
+    
+    return camp
+}
+
+// Naranana counteer
+var naranana = {
+    name: "Naranana",
+    qty: 1,
+    price: 4000
+}
+function counterNaranana(campi){
+    const label = document.getElementById("labelNarana")
+    const camp = campi.qty++
+    // console.log(camp)
+    label.innerHTML = campi.qty-1
+    return camp
+}
+function minusNaranana(campi){
+    const label = document.getElementById("labelNarana")
+    const camp = campi.qty--
+    // console.log(camp)
+    if (campi.qty > 0)
+    {
+        label.innerHTML = campi.qty-1
+    }else{
+        campi.qty = 1
+        label.innerHTML = 0
+    }
+    
+    return camp
+}
+
+// Tangerina counteer
+var tangerina = {
+    name: "Tangerina",
+    qty: 1,
+    price: 4000
+}
+function counterTangerina(campi){
+    const label = document.getElementById("labelTange")
+    const camp = campi.qty++
+    // console.log(camp)
+    label.innerHTML = campi.qty-1
+    return camp
+}
+function minusTangerina(campi){
+    const label = document.getElementById("labelTange")
+    const camp = campi.qty--
+    // console.log(camp)
+    if (campi.qty > 0)
+    {
+        label.innerHTML = campi.qty-1
+    }else{
+        campi.qty = 1
+        label.innerHTML = 0
+    }
+    
+    return camp
+}
+
+// Limonango counteer
+var limonango = {
+    name: "Limonango",
+    qty: 1,
+    price: 4000
+}
+function counterLimonango(campi){
+    const label = document.getElementById("labelLimon")
+    const camp = campi.qty++
+    // console.log(camp)
+    label.innerHTML = campi.qty-1
+    return camp
+}
+function minusLimonango(campi){
+    const label = document.getElementById("labelLimon")
+    const camp = campi.qty--
+    // console.log(camp)
+    if (campi.qty > 0)
+    {
+        label.innerHTML = campi.qty-1
+    }else{
+        campi.qty = 1
+        label.innerHTML = 0
+    }
+    
+    return camp
+}
+
+// Cintrinda counteer
+var citrinda = {
+    name: "Citrinda",
+    qty: 1,
+    price: 4000
+}
+function counterCitrinda(campi){
+    const label = document.getElementById("labelCitri")
+    const camp = campi.qty++
+    // console.log(camp)
+    label.innerHTML = campi.qty-1
+    return camp
+}
+function minusCitrinda(campi){
+    const label = document.getElementById("labelCitri")
+    const camp = campi.qty--
+    // console.log(camp)
+    if (campi.qty > 0)
+    {
+        label.innerHTML = campi.qty-1
+    }else{
+        campi.qty = 1
+        label.innerHTML = 0
+    }
+    
+    return camp
+}
+
+// Mentulada counteer
+var mentulada = {
+    name: "Mentulada",
+    qty: 1,
+    price: 4000
+}
+function counterMentulada(campi){
+    const label = document.getElementById("labelMentu")
+    const camp = campi.qty++
+    // console.log(camp)
+    label.innerHTML = campi.qty-1
+    return camp
+}
+function minusMentulada(campi){
+    const label = document.getElementById("labelMentu")
+    const camp = campi.qty--
+    // console.log(camp)
+    if (campi.qty > 0)
+    {
+        label.innerHTML = campi.qty-1
+    }else{
+        campi.qty = 1
+        label.innerHTML = 0
+    }
+    
+    return camp
+}
 
 function pedido(){
     const name = document.getElementById("name")
@@ -332,7 +600,7 @@ function pedido(){
     const pAdress1 = adress1.replace(/\s/g,'%20')
     const pAdress2 = adress2.replace(/\s/g,'%20')
     const pBarrio = barrio.replace(/\s/g,'%20')
-    const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa]
+    const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa,maracunassa,naranana,tangerina,limonango,citrinda,mentulada]
     let pedido = []
     for (let i = 0; i<productos.length; i++){
         // pedido[i] = []
@@ -352,17 +620,24 @@ function pedido(){
 function addCart(){
 
     const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa]
+    const jugos = [maracunassa,naranana,tangerina,limonango,citrinda,mentulada]
     let pedido = []
+    let pedidoJugos = []
     for (let i = 0; i<productos.length; i++){
         if (productos[i].qty > 1  ){
             pedido.push(productos[i])
         }
     }
-    printCart(pedido)
-    return pedido
+    for (let o = 0; o<jugos.length; o++){
+        if (jugos[o].qty > 1  ){
+            pedidoJugos.push(jugos[o])
+        }
+    }
+    printCart(pedido,pedidoJugos)
+    return pedido,pedidoJugos
 }
 
-function printCart(pedido){
+function printCart(pedido,jugos){
     const precios = document.getElementById("carritoContainer")
     const datos = document.getElementById("carritoDatos")
     const carrito = document.getElementById("carritoLista")
@@ -374,7 +649,7 @@ function printCart(pedido){
     let printTotal = ''
     const html = pedido.map(function(productos){
         total = total + productos.price*(productos.qty-1)
-        printTotal = '$'+total
+        // printTotal = '$'+total
         return (total,` 
         <div class="list-item row">
         <p style="overflow:hidden" class="K2D white align-left col-7">${productos.name}</p>
@@ -383,6 +658,24 @@ function printCart(pedido){
                 <span id="less${productos.name}" onclick="addItem(id),addCart()" class="bebas col-4 cart-btn">-</span>
                 <p class="K2D white align-center col-4">${productos.qty-1}</p>
                 <span id="plus${productos.name}" onclick="addItem(id),addCart()" class="bebas col-4 cart-btn">+</span>
+            </div>    
+        </div>
+        </div>
+        
+        `)
+    })
+
+    const juice = jugos.map(function(jugos){
+        total = total + jugos.price*(jugos.qty-1)
+        printTotal = '$'+total
+        return (total,` 
+        <div class="list-item row">
+        <p style="overflow:hidden" class="K2D white align-left col-7">${jugos.name}</p>
+        <div class="col-5">
+            <div class="row">
+                <span id="less${jugos.name}" onclick="addItem(id),addCart()" class="bebas col-4 cart-btn">-</span>
+                <p class="K2D white align-center col-4">${jugos.qty-1}</p>
+                <span id="plus${jugos.name}" onclick="addItem(id),addCart()" class="bebas col-4 cart-btn">+</span>
             </div>    
         </div>
         </div>
@@ -401,6 +694,48 @@ function printCart(pedido){
         
         `)
     })
+
+    const juice2 = jugos.map(function(jugos){
+        const printTotalid = '$ '+ jugos.price*(jugos.qty-1)
+        return (total,` 
+        <div class="list-item row">
+        <p class="K2D white align-center col-2">${jugos.qty-1}</p>
+        <p style="overflow:hidden" class="K2D white align-left col-6">${jugos.name}</p>
+        <p class="K2D white align-center col-4">${printTotalid}</p>
+        </div>
+        
+        `)
+    })
+
+    const title = function (ttl){
+        let titulo = ``
+        switch (ttl){
+            case pedido:
+                if(html != ``){
+                titulo = `
+                <div class="list-item align-center">
+                    <p style="font-weight=700;" class="K2D orange">ROLLS</p>
+                    
+                </div>
+                ` 
+                }
+            break;
+
+            case jugos:
+
+                if(juice != ``){
+                    titulo = `
+                    <div class="list-item align-center">
+                        <p style="font-weight=700;" class="K2D orange">JUGOS</p>
+                        
+                    </div>
+                    `
+                }
+                
+            break;
+        }
+        return titulo
+    }
 
     const ty = "¡Gracias " + name.value.replace(/ .*/,'') + "!"
         
@@ -429,8 +764,14 @@ function printCart(pedido){
     `
 
     // html.push(addTotal)
-    html.push(addTotal,addButton)
-    html2.push(addTotal,confirmButton)
+    html.unshift(title(pedido))
+    juice.unshift(title(jugos))
+    html.push(juice,addTotal,addButton)
+
+    // html2.unshift(title(pedido))
+    // juice2.unshift(title(jugos))
+    html2.push(juice2,addTotal,confirmButton)
+
     carritoTotal.innerHTML = html2
     carrito.innerHTML = html
     gracias.innerHTML = ty
