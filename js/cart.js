@@ -230,6 +230,24 @@ function addItem(id){
          minusMentulada(mentulada)
          count --
          break;
+
+
+
+          // Mazorcada
+         case 'plusMazorcada': 
+         counterMazorcada(mazorcada)
+         count ++
+         break;
+ 
+         case 'addMazorcada': 
+         counterMazorcada(mazorcada)
+         count ++
+         break;
+ 
+         case 'lessMazorcada': 
+         minusMazorcada(mazorcada)
+         count --
+         break;
     }
     const html = `${count}`
     if (count > 0){
@@ -592,6 +610,37 @@ function minusMentulada(campi){
     return camp
 }
 
+
+// Comidas Rápidas
+
+// Mazorcada counteer
+var mazorcada = {
+    name: "Mazorcada",
+    qty: 1,
+    price: 12000
+}
+function counterMazorcada(campi){
+    const label = document.getElementById("labelMazorca")
+    const camp = campi.qty++
+    // console.log(camp)
+    label.innerHTML = campi.qty-1
+    return camp
+}
+function minusMazorcada(campi){
+    const label = document.getElementById("labelMazorca")
+    const camp = campi.qty--
+    // console.log(camp)
+    if (campi.qty > 0)
+    {
+        label.innerHTML = campi.qty-1
+    }else{
+        campi.qty = 1
+        label.innerHTML = 0
+    }
+    
+    return camp
+}
+
 function pedido(){
     const name = document.getElementById("name")
     const adress1 = document.getElementById("adress1").value
@@ -600,7 +649,7 @@ function pedido(){
     const pAdress1 = adress1.replace(/\s/g,'%20')
     const pAdress2 = adress2.replace(/\s/g,'%20')
     const pBarrio = barrio.replace(/\s/g,'%20')
-    const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa,maracunassa,naranana,tangerina,limonango,citrinda,mentulada]
+    const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa,maracunassa,naranana,tangerina,limonango,citrinda,mentulada,mazorcada]
     let pedido = []
     for (let i = 0; i<productos.length; i++){
         // pedido[i] = []
@@ -621,8 +670,11 @@ function addCart(){
 
     const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa]
     const jugos = [maracunassa,naranana,tangerina,limonango,citrinda,mentulada]
+    const comidasRapidas = [mazorcada]
     let pedido = []
     let pedidoJugos = []
+    let pedidoComidas = []
+
     for (let i = 0; i<productos.length; i++){
         if (productos[i].qty > 1  ){
             pedido.push(productos[i])
@@ -633,11 +685,16 @@ function addCart(){
             pedidoJugos.push(jugos[o])
         }
     }
-    printCart(pedido,pedidoJugos)
-    return pedido,pedidoJugos
+    for (let p = 0; p<comidasRapidas.length; p++){
+        if (comidasRapidas[p].qty > 1  ){
+            pedidoComidas.push(comidasRapidas[p])
+        }
+    }
+    printCart(pedido,pedidoJugos,pedidoComidas)
+    return pedido,pedidoJugos,pedidoComidas
 }
 
-function printCart(pedido,jugos){
+function printCart(pedido,jugos,comidas){
     const precios = document.getElementById("carritoContainer")
     const datos = document.getElementById("carritoDatos")
     const carrito = document.getElementById("carritoLista")
@@ -683,6 +740,24 @@ function printCart(pedido,jugos){
         `)
     })
 
+    const FastFood = comidas.map(function(comidas){
+        total = total + comidas.price*(comidas.qty-1)
+        printTotal = '$'+total
+        return (total,` 
+        <div class="list-item row">
+        <p style="overflow:hidden" class="K2D white align-left col-7">${comidas.name}</p>
+        <div class="col-5">
+            <div class="row">
+                <span id="less${comidas.name}" onclick="addItem(id),addCart()" class="bebas col-4 cart-btn">-</span>
+                <p class="K2D white align-center col-4">${comidas.qty-1}</p>
+                <span id="plus${comidas.name}" onclick="addItem(id),addCart()" class="bebas col-4 cart-btn">+</span>
+            </div>    
+        </div>
+        </div>
+        
+        `)
+    })
+
     const html2 = pedido.map(function(productos){
         const printTotalidad = '$ '+ productos.price*(productos.qty-1)
         return (total,` 
@@ -701,6 +776,18 @@ function printCart(pedido,jugos){
         <div class="list-item row">
         <p class="K2D white align-center col-2">${jugos.qty-1}</p>
         <p style="overflow:hidden" class="K2D white align-left col-6">${jugos.name}</p>
+        <p class="K2D white align-center col-4">${printTotalid}</p>
+        </div>
+        
+        `)
+    })
+
+    const FastFood2 = comidas.map(function(comidas){
+        const printTotalid = '$ '+ comidas.price*(comidas.qty-1)
+        return (total,` 
+        <div class="list-item row">
+        <p class="K2D white align-center col-2">${comidas.qty-1}</p>
+        <p style="overflow:hidden" class="K2D white align-left col-6">${comidas.name}</p>
         <p class="K2D white align-center col-4">${printTotalid}</p>
         </div>
         
@@ -727,6 +814,19 @@ function printCart(pedido,jugos){
                     titulo = `
                     <div class="list-item align-center">
                         <p style="font-weight=700;" class="K2D orange">JUGOS</p>
+                        
+                    </div>
+                    `
+                }
+                
+            break;
+
+            case comidas:
+
+                if(FastFood != ``){
+                    titulo = `
+                    <div class="list-item align-center">
+                        <p style="font-weight=700;" class="K2D orange">Comidas</p>
                         
                     </div>
                     `
@@ -766,11 +866,12 @@ function printCart(pedido,jugos){
     // html.push(addTotal)
     html.unshift(title(pedido))
     juice.unshift(title(jugos))
-    html.push(juice,addTotal,addButton)
+    FastFood.unshift(title(comidas))
+    html.push(juice,FastFood,addTotal,addButton)
 
     // html2.unshift(title(pedido))
     // juice2.unshift(title(jugos))
-    html2.push(juice2,addTotal,confirmButton)
+    html2.push(juice2,FastFood2,addTotal,confirmButton)
 
     carritoTotal.innerHTML = html2
     carrito.innerHTML = html

@@ -153,6 +153,10 @@
     /* border-bottom: solid 1px var(--primary-orange); */
 }
 
+.mazorcada-card{
+    height: 280px;
+}
+
 .title-card{
     height: 150px;
     /* border-bottom: solid 1px var(--primary-orange); */
