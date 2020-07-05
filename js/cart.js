@@ -908,6 +908,58 @@ function printBack(id){
     }
 }
 
+const burgerInput = document.getElementById("burgerInput")
+burgerInput.addEventListener('submit',listenBurger)
+
+function listenBurger(event){
+    event.preventDefault()
+    const carne = document.getElementsByName("carne")
+    let carneChoose = ""
+    for (let i = 0; i < carne.length; i++ ){
+        if(carne[i].checked){
+            carneChoose = carne[i].value
+        }
+    }
+    
+    const tipo = document.getElementsByName("tipo")
+    let tipoChoose = ""
+    for (let o = 0; o < tipo.length; o++ ){
+        if(tipo[o].checked){
+            tipoChoose = tipo[o].value
+        }
+    }
+
+    switch (carneChoose){
+        case "res":
+            switch (tipoChoose){
+                case "pan":
+                    addItem("addBurgerResPan")
+                break
+
+                case "patacon":
+                    addItem("addBurgerResPatacon")
+                break;
+            }
+        break;
+
+        case "cerdo":
+            switch (tipoChoose){
+                case "pan":
+                    addItem("addBurgerCerdoPan")
+                break
+
+                case "patacon":
+                    addItem("addBurgerCerdoPan")
+                break;
+            }
+        break;
+    }
+
+    showCart()
+    
+    // printCounter('lessMazorcada','labelMazorca','space-32','space-33')
+}
+
 const input = document.getElementById("input")
 input.addEventListener('submit',printTotal)
 
