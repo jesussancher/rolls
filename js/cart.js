@@ -649,7 +649,7 @@ function printCart(pedido,jugos){
     let printTotal = ''
     const html = pedido.map(function(productos){
         total = total + productos.price*(productos.qty-1)
-        // printTotal = '$'+total
+        printTotal = '$'+total
         return (total,` 
         <div class="list-item row">
         <p style="overflow:hidden" class="K2D white align-left col-7">${productos.name}</p>
