@@ -179,7 +179,7 @@ function addItem(id){
         break;
 
         case 'lessTangerina': 
-        minusNaranana(tangerina)
+        minusTangerina(tangerina)
         count --
         break;
 
@@ -807,7 +807,11 @@ function printBack(id){
     }
 }
 
-function printTotal(){
+const input = document.getElementById("input")
+input.addEventListener('submit',printTotal)
+
+function printTotal(event){
+    event.preventDefault()
     const total = document.getElementById("carritoTotal")
     const datos = document.getElementById("carritoDatos")
 

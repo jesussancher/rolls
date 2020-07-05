@@ -429,7 +429,7 @@
                 </div>
 
                 <div class="list-container row-9 align-center">
-                    <form id="input">
+                    <form id="input" event.preventDefault()>
                         <label for="name" class="K2D orange">¿Cómo te llamas?</label><br><br>
                         <input type="text" class="cart-input white w-80" id="name" name="name" placeholder=" Ej: Pedro Rodríguez" required><br><br>
                         <label for="adress1" class="K2D orange">¿Dónde debemos ir?</label><br><br>
@@ -441,12 +441,12 @@
                         <br>
                         <input type="text" class="cart-input white col-5" id="barrio" name="barrio" placeholder=" Barrio" required><br><br>
                         <br>
-                        <a id="confirmar" onclick="printTotal()" target="_blank"  class="add-btn K2D orange invisible">Continuar</a>
+                        <button type="submit" id="confirmar" style="background-color: rgba(0,0,0,0);" class="add-btn K2D orange" value="Continuar">Continuar</button>
+                        
+                    </form>
                         <br><br>
                         <a onclick="printBack('carritoDatos')" target="_blank"  style="cursor: pointer;" class="K2D white">Atrás</a>
 
-                    </form>
-                
                 </div>
                 
                 <div class="row-1 align-center">
