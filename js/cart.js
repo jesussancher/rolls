@@ -810,7 +810,7 @@ function pedido(){
 
     }
     let linkWa = pedido.join('%0A')
-    const url = "https://api.whatsapp.com/send?phone=573183147984&text=%C2%A1Hola!%20Soy%20"+name.value+"%0AQuiero%3A%0A"+linkWa+"%0APara "+pAdress1+"%20No%20"+pAdress2+"%0AEn%20el%20barrio%20"+pBarrio+"%0AGracias"
+    const url = "https://api.whatsapp.com/send?phone=573209768038&text=%C2%A1Hola!%20Soy%20"+name.value+"%0AQuiero%3A%0A"+linkWa+"%0APara "+pAdress1+"%20No%20"+pAdress2+"%0AEn%20el%20barrio%20"+pBarrio+"%0AGracias"
     const a = document.getElementById("enviar")
     a.href = url
     console.log(url)
