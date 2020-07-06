@@ -248,6 +248,70 @@ function addItem(id){
          minusMazorcada(mazorcada)
          count --
          break;
+
+         // Hamburguesa de res con pan
+         case 'plusBurger(Res/Pan)': 
+         counterBurgerResPan(respan)
+         count ++
+         break;
+ 
+         case 'addBurgerResPan': 
+         counterBurgerResPan(respan)
+         count ++
+         break;
+ 
+         case 'lessBurger(Res/Pan)': 
+         minusBurgerResPan(respan)
+         count --
+         break;
+
+         // Hamburguesa de res con pan
+         case 'plusBurger(Res/Patacon)': 
+         counterBurgerResPat(respat)
+         count ++
+         break;
+ 
+         case 'addBurgerResPat': 
+         counterBurgerResPat(respat)
+         count ++
+         break;
+ 
+         case 'lessBurger(Res/Patacon)': 
+         minusBurgerResPat(respat)
+         count --
+         break;
+
+         // Hamburguesa de cerdo con pan
+         case 'plusBurger(Cerdo/Pan)': 
+         counterBurgerCerdoPan(cerdopan)
+         count ++
+         break;
+ 
+         case 'addBurgerCerdoPan': 
+         counterBurgerCerdoPan(cerdopan)
+         count ++
+         break;
+ 
+         case 'lessBurger(Cerdo/Pan)': 
+         minusBurgerCerdoPan(cerdopan)
+         count --
+         break;
+
+         // Hamburguesa de cerdo con patacon
+         case 'plusBurger(Cerdo/Patacon)': 
+         counterBurgerCerdoPat(cerdopat)
+         count ++
+         break;
+ 
+         case 'addBurgerCerdoPat': 
+         counterBurgerCerdoPat(cerdopat)
+         count ++
+         break;
+ 
+         case 'lessBurger(Cerdo/Patacon)': 
+         minusBurgerCerdoPat(cerdopat)
+         count --
+         break;
     }
     const html = `${count}`
     if (count > 0){
@@ -641,6 +705,93 @@ function minusMazorcada(campi){
     return camp
 }
 
+// Res Pan counteer
+var respan = {
+    name: "Burger(Res/Pan)",
+    qty: 1,
+    price: 8000
+}
+function counterBurgerResPan(campi){
+    // const label = document.getElementById("labelBurger")
+    const camp = campi.qty++
+    // console.log(camp)
+    // label.innerHTML = campi.qty-1
+    return camp
+}
+function minusBurgerResPan(campi){
+    // const label = document.getElementById("labelBurger")
+    const camp = campi.qty--
+
+    
+    return camp
+}
+
+// Res Patacon counteer
+var respat = {
+    name: "Burger(Res/Patacon)",
+    qty: 1,
+    price: 8500
+}
+function counterBurgerResPat(campi){
+    // const label = document.getElementById("labelBurger")
+    const camp = campi.qty++
+    // console.log(camp)
+    // label.innerHTML = campi.qty-1
+    return camp
+}
+function minusBurgerResPat(campi){
+    // const label = document.getElementById("labelBurger")
+    const camp = campi.qty--
+
+    
+    return camp
+}
+
+
+// Cerdo Pan counteer
+var cerdopan = {
+    name: "Burger(Cerdo/Pan)",
+    qty: 1,
+    price: 8000
+}
+function counterBurgerCerdoPan(campi){
+    // const label = document.getElementById("labelBurger")
+    const camp = campi.qty++
+    // console.log(camp)
+    // label.innerHTML = campi.qty-1
+    return camp
+}
+function minusBurgerCerdoPan(campi){
+    // const label = document.getElementById("labelBurger")
+    const camp = campi.qty--
+
+    
+    return camp
+}
+
+
+// Cerdo Patacon counteer
+var cerdopat = {
+    name: "Burger(Cerdo/Patacon)",
+    qty: 1,
+    price: 8500
+}
+function counterBurgerCerdoPat(campi){
+    // const label = document.getElementById("labelBurger")
+    const camp = campi.qty++
+    // console.log(camp)
+    // label.innerHTML = campi.qty-1
+    return camp
+}
+function minusBurgerCerdoPat(campi){
+    // const label = document.getElementById("labelBurger")
+    const camp = campi.qty--
+
+    
+    return camp
+}
+
+
 function pedido(){
     const name = document.getElementById("name")
     const adress1 = document.getElementById("adress1").value
@@ -649,7 +800,7 @@ function pedido(){
     const pAdress1 = adress1.replace(/\s/g,'%20')
     const pAdress2 = adress2.replace(/\s/g,'%20')
     const pBarrio = barrio.replace(/\s/g,'%20')
-    const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa,maracunassa,naranana,tangerina,limonango,citrinda,mentulada,mazorcada]
+    const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa,maracunassa,naranana,tangerina,limonango,citrinda,mentulada,mazorcada,respan,respat,cerdopan,cerdopat]
     let pedido = []
     for (let i = 0; i<productos.length; i++){
         // pedido[i] = []
@@ -670,7 +821,7 @@ function addCart(){
 
     const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa]
     const jugos = [maracunassa,naranana,tangerina,limonango,citrinda,mentulada]
-    const comidasRapidas = [mazorcada]
+    const comidasRapidas = [mazorcada,respan,respat,cerdopan,cerdopat]
     let pedido = []
     let pedidoJugos = []
     let pedidoComidas = []
@@ -826,7 +977,7 @@ function printCart(pedido,jugos,comidas){
                 if(FastFood != ``){
                     titulo = `
                     <div class="list-item align-center">
-                        <p style="font-weight=700;" class="K2D orange">Comidas</p>
+                        <p style="font-weight=700;" class="K2D orange">COMIDAS RAPIDAS</p>
                         
                     </div>
                     `
@@ -937,7 +1088,7 @@ function listenBurger(event){
                 break
 
                 case "patacon":
-                    addItem("addBurgerResPatacon")
+                    addItem("addBurgerResPat")
                 break;
             }
         break;
@@ -949,7 +1100,7 @@ function listenBurger(event){
                 break
 
                 case "patacon":
-                    addItem("addBurgerCerdoPan")
+                    addItem("addBurgerCerdoPat")
                 break;
             }
         break;
