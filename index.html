@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/promos.css">
+    <link rel="stylesheet" href="css/carousel.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=K2D:wght@100;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -445,6 +447,9 @@
 
                 </div>
             </div>
+
+                
+
                 <!-- </div>
             </div> -->
             <div id="productNav" class="product-navigation align-center">
@@ -544,11 +549,55 @@
         <!-- </div> -->
 
     <!-- Promos start -->
-        <!-- <div class="promos-section bg-black">
+        <div class="promos-section bg-black">
             <h2 class="promoTitle bebas white pt-60">¡PROMOS!</h2>
-            <img class="w-100 pt-40" src="assets/images/Promos/Promo0616.png">
-        </div> -->
-        <!-- Promos end -->
+            
+
+            <div class="back-carousel">
+                    <div class="dot-container align-center">
+                        
+                      <span class="dot relative shadow K2D" onclick="currentSlide(1)">COMBO 1</span> 
+                      <span class="dot relative shadow K2D" onclick="currentSlide(2)">COMBO 2</span> 
+                
+                    </div>
+                    <a id="next" class="next" onclick="plusSlides(1)">&#10095;</a>
+                <div id="carousel" class="mb-30">
+          
+                  <div class="relative w-100">
+          
+                    <div class="mySlides fade">
+                        <img src="assets/images/Promos/Promo1.jpg" style="width:100%">
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      <img src="assets/images/Promos/Promo2.jpg" style="width:100%">
+                    </div>
+          
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a id="nextMob"class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                    </div>
+              </div>
+
+              <div class="product-content row-3">
+                <div class="row">
+                    <span class="col-8"></span>
+                        <span class="row w-100">
+                                <span id="space-17" style="opacity: 0;" class="col-3 cart-btn"></span>
+                                <span id="lessTangerina" onclick="addItem(id),addCart(),printCounter('lessTangerina','labelTange','space-17','space-18')" class="col-3 bebas cart-btn invisible">-</span>
+                                <a onclick="showCart(),addItem(id),printCounter('lessTangerina','labelTange','space-17','space-18')" class="btn orange K2D" id="addTangerina">Agregar</a>
+                                <p id="labelTange" class="K2D white align-center col-1 invisible"></p>
+                                <p  id="space-18" class="K2D white align-center col-1" style="opacity:0"></p>
+                        </span>
+                    <span class="col-8"></span>
+                </div>
+            </div>
+        </div>
+
+        
+    <!-- Promos end -->
+
+
 <footer class="bg-black">
         <div class="row footer">
             <div style="margin-top:15px;" class="align-center col-6">
@@ -578,4 +627,6 @@
     <script src="js/nav.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/geolocation.js"></script>
+    <script src="js/carousel.js"></script>
+
 </html>
