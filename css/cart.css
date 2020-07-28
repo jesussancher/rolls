@@ -139,8 +139,18 @@ color: #000;
   right: 10px;
   top: 10px; 
 }
+
+select{
+  color: var(--primary-orange);
+  background-color: rgba(15,15,15,0);
+  width: 70%;
+}
+option{
+  background-color: rgba(15,15,15,0);
+}
+
 .combo-content{
-  margin: 100px 30px 30px 30px
+  margin: 70px 30px 30px 30px
 }
 .fix-fixed{
   top: -100px !important;
