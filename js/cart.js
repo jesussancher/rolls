@@ -310,17 +310,17 @@ function addItem(id){
 
          // Combo1
         case 'plusCombo1': 
-        counterCombo1(promo1)
+        counterCombo1(promo1[0])
         count ++
         break;
 
         case 'addCombo1': 
-        counterCombo1(promo1)
+        counterCombo1(promo1[0])
         count ++
         break;
 
         case 'lessCombo1': 
-        minusCombo1(promo1)
+        minusCombo1(promo1[0])
         count --
         break;
     }
@@ -806,6 +806,7 @@ function minusBurgerCerdoPat(campi){
 // Combos
 
 // Combo 1
+var promo1 = [{qty: 1,price:8000},]
 
 function counterCombo1(campi){
     const camp = campi.qty++
@@ -855,10 +856,9 @@ function addCart(){
     let pedidoComidas = []
     let pedidoCombos = []
 
-    let combos1 = []
-    for(let a = 1; a< promo1.length; a++){
-        combos1.push(promo1[a])
-    }
+    
+    console.log(combos1)
+
 
     for (let i = 0; i<productos.length; i++){
         if (productos[i].qty > 1  ){
@@ -881,7 +881,7 @@ function addCart(){
             pedidoCombos.push(combos1[q])
         }
     }
-    console.log(combos1[0].qty)
+    
     printCart(pedido,pedidoJugos,pedidoComidas,pedidoCombos)
     return pedido,pedidoJugos,pedidoComidas,pedidoCombos
 }
@@ -950,7 +950,7 @@ function printCart(pedido,jugos,comidas,combos){
         `)
     })
 
-    console.log(combos)
+    // console.log(combos)
     const Combos = combos.map(function(combos){
         total = total + combos.price*(combos.qty-1)
         printTotal = '$'+total
@@ -1200,40 +1200,26 @@ function listenBurger(event){
 const combo1Input = document.getElementById("combo1Input")
 combo1Input.addEventListener('submit',listenCombo1)
 
-
-var promo1 = []
-    
-
+var combos1 = []
 function listenCombo1(event){
     event.preventDefault()
     const combo1 = c1select()
-    if(promo1.length == 0){
+    
         promo1.push({
             id: combo1,
             name: "Combo1",
             name1: c1select().join(" y "),
             qty: 1,
-            price: 8000
         })
-    } else{
-        for(let i = 0; i<promo1.length; i++){
-            if(promo1[i].id != combo1){
-                promo1.push({
-                    name: "Combo1",
-                    name1: c1select().join(" y "),
-                    qty: 1,
-                    price: 8000
-                })
-            } else if(promo1[i].name1 == combo1){
-                promo1[i].qty+1
-            }
+    
+    for(let a = 1; a< promo1.length; a++){
+        if(promo1[a].name1 != promo1[a-1].name1){
+            combos1.push(promo1[a])
+        } else{
+            combos1[combos1.length-1].qty++
         }
     }
-        
-    
-    
-    
-    console.log(promo1)
+
     addItem("addCombo1")
     showCart()
 }
@@ -1319,7 +1305,7 @@ $(document).ready(function(){
   
   
       } else {
-  
+        combos1 = []
         $(mainCarrito).animate({
             height: '0px',
             width: '0%',
@@ -1345,7 +1331,24 @@ $(document).ready(function(){
         },"slow");
       
       }
-  
+
+
+      if ($(comboContainer).height() != 0) {
+          
+        $(combo1Info).animate({
+            height: '0px',
+            width: '0%',
+            opacity: '0%'
+          },"slow");
+    
+        $(comboContainer).animate({
+          height: '0px',
+          width: '0%',
+          opacity: '0%'
+        },"slow");
+
+        } 
+
     });
 
 
