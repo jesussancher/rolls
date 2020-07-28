@@ -551,8 +551,7 @@
     <!-- Promos start -->
         <div class="promos-section bg-black">
             <h2 class="promoTitle bebas white pt-60">¡PROMOS!</h2>
-            
-
+    
             <div class="back-carousel">
                     <div class="dot-container align-center">
                         
@@ -560,17 +559,37 @@
                       <span class="dot relative shadow K2D" onclick="currentSlide(2)">COMBO 2</span> 
                 
                     </div>
-                    <a id="next" class="next" onclick="plusSlides(1)">&#10095;</a>
                 <div id="carousel" class="mb-30">
           
                   <div class="relative w-100">
           
                     <div class="mySlides fade">
                         <img src="assets/images/Promos/Promo1.jpg" style="width:100%">
+                        <br></br>
+                        <div class="product-content">
+                            <div class="row">
+                                <span class="col-8"></span>
+                                    <span class="row w-100">
+                                            <!-- <a onclick="showCart(),addItem(id)" id="addCombo1">Agregar Combo 1</a> -->
+                                            <a id="combo1"  class="btn orange K2D">Agregar Combo 1</a>
+                                    </span>
+                                <span class="col-8"></span>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="mySlides fade">
                       <img src="assets/images/Promos/Promo2.jpg" style="width:100%">
+                      <br></br>
+                      <div class="product-content">
+                        <div class="row">
+                            <span class="col-7"></span>
+                                <span class="row w-100">
+                                        <a class="btn orange K2D" id="addCombo2">Agregar Combo 2</a>
+                                </span>
+                            <span class="col-7"></span>
+                        </div>
+                    </div>
                     </div>
           
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -578,18 +597,48 @@
                     </div>
                     </div>
               </div>
+              
+            <br></br>
 
-              <div class="product-content row-3">
-                <div class="row">
-                    <span class="col-8"></span>
-                        <span class="row w-100">
-                                <span id="space-17" style="opacity: 0;" class="col-3 cart-btn"></span>
-                                <span id="lessTangerina" onclick="addItem(id),addCart(),printCounter('lessTangerina','labelTange','space-17','space-18')" class="col-3 bebas cart-btn invisible">-</span>
-                                <a onclick="showCart(),addItem(id),printCounter('lessTangerina','labelTange','space-17','space-18')" class="btn orange K2D" id="addTangerina">Agregar</a>
-                                <p id="labelTange" class="K2D white align-center col-1 invisible"></p>
-                                <p  id="space-18" class="K2D white align-center col-1" style="opacity:0"></p>
-                        </span>
-                    <span class="col-8"></span>
+            <div id="comboContainer" class="combo-container">
+                <div id="combo1Info" class="combo-info">
+                    <a id="cerrar"class="x K2D orange btn absolute">X</a>
+                        <div class="combo-content align-center">
+                            <h3 class="bebas orange">¿Cómo lo quieres?</h3>
+                            <br></br>
+                            <form id="combo1Input" event.preventDefault()>
+                                <p class="K2D orange">Elige tu Rolls</p>
+                                <br>
+                                <input type="radio" id="c1Campesina" name="combo1" value="c1Campesina">
+                                <label for="c1Campesina" style="margin-right: 20px; color:#f69520;"class="K2D white">Campesina</label>
+                                <input type="radio" id="c1Picarona" name="combo1" value="c1Picarona" required>
+                                <label for="c1Picarona" class="K2D white" style="color:#cfe52c;">Picarona</label><br>
+                                <br>
+                                <input type="radio" id="c1Rancherita" name="combo1" value="c1Rancherita">
+                                <label for="c1Rancherita" style="margin-right: 20px; color:#dc2126;"class="K2D white">Rancherita</label>
+                                <input type="radio" id="c1Caprichosa" name="combo1" value="c1Caprichosa" required>
+                                <label for="c1Caprichosa" class="K2D white" style="color:#0cb1ac;">Caprichosa</label><br>
+                                <br>
+                                <input type="radio" id="c1Melosa" name="combo1" value="c1Melosa">
+                                <label for="c1Melosa" style="margin-right: 20px; color:#f05b26;"class="K2D white">Melosa</label>
+                                <input type="radio" id="c1Granjerita" name="combo1" value="c1Granjerita" required>
+                                <label for="c1Granjerita" class="K2D white" style="color:#fed79d;">Granjerita</label><br>
+                                <br>
+                                <p class="K2D orange">¡Tú eliges!</p>
+                                <br>
+                                <input type="radio" id="pan" name="tipo" value="pan">
+                                <label for="pan" style="margin-right: 20px;"class="K2D white">Pan</label>
+                                <input type="radio" id="patacon" name="tipo" value="patacon" required>
+                                <label for="patacon" class="K2D white">Patacón</label><br>
+                                <div class="product-content row-3">
+                                <input type="submit"  class="btn orange K2D" id="addCombo1" style="background-color: rgba(0,0,0,0);" value="Agregar"></input>
+                                </div>      
+                            </form>
+                        </div>
+                            
+                </div>
+                <div id="combo2">
+
                 </div>
             </div>
         </div>
@@ -621,6 +670,7 @@
 </body>
 
     <!-- Scripts -->
+    
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/typing.js"></script>
     <script src="js/products.js"></script>
@@ -628,5 +678,6 @@
     <script src="js/cart.js"></script>
     <script src="js/geolocation.js"></script>
     <script src="js/carousel.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </html>

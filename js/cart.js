@@ -23,13 +23,6 @@ itemCounter = function(){
 }
 var itemCounter = 1
 
-
-
-// function debug(){
-//     const camp = counterCampesina()
-//     return camp
-// }
-
 let count = 0
 function addItem(id){
     const labelCart = document.getElementById("counterCart")
@@ -1211,6 +1204,7 @@ $(document).ready(function(){
   
     });
 
+
     $('.cart-input').on("focus",function(){
     
         if ($(this).is( ":focus" )) {
@@ -1243,6 +1237,46 @@ $(document).ready(function(){
         }
     });
     // });
+
+    $(combo1).on("click",function(){
+  
+        if ($(comboContainer).height() == 0) {
+          
+          $(combo1Info).animate({
+              height: window_height-100,
+              width: '80%',
+              opacity: '100%'
+          },"500");
+  
+          $(comboContainer).animate({
+              height: window_height+100,
+              width: '100%',
+              opacity: '100%'
+          },"500");
+    
+        } 
+      });
+
+      $(cerrar).on("click",function(){
+  
+        if ($(comboContainer).height() != 0) {
+          
+            $(combo1Info).animate({
+                height: '0px',
+                width: '0%',
+                opacity: '0%'
+              },"slow");
+        
+            $(comboContainer).animate({
+              height: '0px',
+              width: '0%',
+              opacity: '0%'
+            },"slow");
+    
+        } 
+      });
+
+
 
   });
 
