@@ -305,6 +305,24 @@ function addItem(id){
          minusBurgerCerdoPat(cerdopat)
          count --
          break;
+
+
+
+         // Combo1
+        case 'plusCombo1': 
+        counterCombo1(promo1)
+        count ++
+        break;
+
+        case 'addCombo1': 
+        counterCombo1(promo1)
+        count ++
+        break;
+
+        case 'lessCombo1': 
+        minusCombo1(promo1)
+        count --
+        break;
     }
     const html = `${count}`
     if (count > 0){
@@ -785,6 +803,22 @@ function minusBurgerCerdoPat(campi){
 }
 
 
+// Combos
+
+// Combo 1
+
+function counterCombo1(campi){
+    const camp = campi.qty++
+    console.log(camp)
+    return camp
+}
+function minusCombo1(campi){
+    const camp = campi.qty--
+    console.log(camp)
+    return camp
+}
+
+
 function pedido(){
     const name = document.getElementById("name")
     const adress1 = document.getElementById("adress1").value
@@ -793,7 +827,7 @@ function pedido(){
     const pAdress1 = adress1.replace(/\s/g,'%20')
     const pAdress2 = adress2.replace(/\s/g,'%20')
     const pBarrio = barrio.replace(/\s/g,'%20')
-    const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa,maracunassa,naranana,tangerina,limonango,citrinda,mentulada,mazorcada,respan,respat,cerdopan,cerdopat]
+    const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa,maracunassa,naranana,tangerina,limonango,citrinda,mentulada,mazorcada,respan,respat,cerdopan,cerdopat,promo1]
     let pedido = []
     for (let i = 0; i<productos.length; i++){
         // pedido[i] = []
@@ -815,9 +849,16 @@ function addCart(){
     const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa]
     const jugos = [maracunassa,naranana,tangerina,limonango,citrinda,mentulada]
     const comidasRapidas = [mazorcada,respan,respat,cerdopan,cerdopat]
+    const combos = [promo1]
     let pedido = []
     let pedidoJugos = []
     let pedidoComidas = []
+    let pedidoCombos = []
+
+    let combos1 = []
+    for(let a = 1; a< promo1.length; a++){
+        combos1.push(promo1[a])
+    }
 
     for (let i = 0; i<productos.length; i++){
         if (productos[i].qty > 1  ){
@@ -834,11 +875,18 @@ function addCart(){
             pedidoComidas.push(comidasRapidas[p])
         }
     }
-    printCart(pedido,pedidoJugos,pedidoComidas)
-    return pedido,pedidoJugos,pedidoComidas
+
+    for (let q = 0; q<combos1.length; q++){
+        if (combos1[q].qty > 1  ){
+            pedidoCombos.push(combos1[q])
+        }
+    }
+    console.log(combos1[0].qty)
+    printCart(pedido,pedidoJugos,pedidoComidas,pedidoCombos)
+    return pedido,pedidoJugos,pedidoComidas,pedidoCombos
 }
 
-function printCart(pedido,jugos,comidas){
+function printCart(pedido,jugos,comidas,combos){
     const precios = document.getElementById("carritoContainer")
     const datos = document.getElementById("carritoDatos")
     const carrito = document.getElementById("carritoLista")
@@ -902,6 +950,25 @@ function printCart(pedido,jugos,comidas){
         `)
     })
 
+    console.log(combos)
+    const Combos = combos.map(function(combos){
+        total = total + combos.price*(combos.qty-1)
+        printTotal = '$'+total
+        return (total,` 
+        <div class="list-item row">
+        <p style="overflow:hidden" class="K2D white align-left col-7">${combos.name1}</p>
+        <div class="col-5">
+            <div class="row">
+                <span id="less${combos.name}" onclick="addItem(id),addCart()" class="bebas col-4 cart-btn">-</span>
+                <p class="K2D white align-center col-4">${combos.qty-1}</p>
+                <span id="plus${combos.name}" onclick="addItem(id),addCart()" class="bebas col-4 cart-btn">+</span>
+            </div>    
+        </div>
+        </div>
+        
+        `)
+    })
+
     const html2 = pedido.map(function(productos){
         const printTotalidad = '$ '+ productos.price*(productos.qty-1)
         return (total,` 
@@ -932,6 +999,18 @@ function printCart(pedido,jugos,comidas){
         <div class="list-item row">
         <p class="K2D white align-center col-2">${comidas.qty-1}</p>
         <p style="overflow:hidden" class="K2D white align-left col-6">${comidas.name}</p>
+        <p class="K2D white align-center col-4">${printTotalid}</p>
+        </div>
+        
+        `)
+    })
+
+    const Combos2 = combos.map(function(comidas){
+        const printTotalid = '$ '+ comidas.price*(comidas.qty-1)
+        return (total,` 
+        <div class="list-item row">
+        <p class="K2D white align-center col-2">${comidas.qty-1}</p>
+        <p style="overflow:hidden" class="K2D white align-left col-6">${comidas.name1}</p>
         <p class="K2D white align-center col-4">${printTotalid}</p>
         </div>
         
@@ -977,6 +1056,19 @@ function printCart(pedido,jugos,comidas){
                 }
                 
             break;
+
+            case combos:
+
+                if(Combos != ``){
+                    titulo = `
+                    <div class="list-item align-center">
+                        <p style="font-weight=700;" class="K2D orange">COMBOS</p>
+                        
+                    </div>
+                    `
+                }
+                
+            break;
         }
         return titulo
     }
@@ -1011,11 +1103,12 @@ function printCart(pedido,jugos,comidas){
     html.unshift(title(pedido))
     juice.unshift(title(jugos))
     FastFood.unshift(title(comidas))
-    html.push(juice,FastFood,addTotal,addButton)
+    Combos.unshift(title(combos))
+    html.push(juice,FastFood,Combos,addTotal,addButton)
 
     // html2.unshift(title(pedido))
     // juice2.unshift(title(jugos))
-    html2.push(juice2,FastFood2,addTotal,confirmButton)
+    html2.push(juice2,FastFood2,Combos2,addTotal,confirmButton)
 
     carritoTotal.innerHTML = html2
     carrito.innerHTML = html
@@ -1103,6 +1196,57 @@ function listenBurger(event){
     
     // printCounter('lessMazorcada','labelMazorca','space-32','space-33')
 }
+
+const combo1Input = document.getElementById("combo1Input")
+combo1Input.addEventListener('submit',listenCombo1)
+
+
+var promo1 = []
+    
+
+function listenCombo1(event){
+    event.preventDefault()
+    const combo1 = c1select()
+    if(promo1.length == 0){
+        promo1.push({
+            id: combo1,
+            name: "Combo1",
+            name1: c1select().join(" y "),
+            qty: 1,
+            price: 8000
+        })
+    } else{
+        for(let i = 0; i<promo1.length; i++){
+            if(promo1[i].id != combo1){
+                promo1.push({
+                    name: "Combo1",
+                    name1: c1select().join(" y "),
+                    qty: 1,
+                    price: 8000
+                })
+            } else if(promo1[i].name1 == combo1){
+                promo1[i].qty+1
+            }
+        }
+    }
+        
+    
+    
+    
+    console.log(promo1)
+    addItem("addCombo1")
+    showCart()
+}
+
+function c1select(){
+    const c1 = []
+    const rolls = document.getElementById("c1Rolls").value;
+    const jugos = document.getElementById("c1Juice").value;
+    c1.push(rolls,jugos)
+    return c1
+}
+
+
 
 const input = document.getElementById("input")
 input.addEventListener('submit',printTotal)

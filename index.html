@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/cart.css">
-    <link rel="stylesheet" href="css/promos.css">
+    <!-- <link rel="stylesheet" href="css/promos.css"> -->
     <link rel="stylesheet" href="css/carousel.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=K2D:wght@100;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -606,21 +606,23 @@
                         <div class="combo-content align-center">
                             <h3 class="bebas orange">¿Cómo lo quieres?</h3>
                             <br></br>
-                            <form id="combo1Input" event.preventDefault()>
+                            <form id="combo1Input" onchange="c1select()" event.preventDefault()>
                                 <p class="K2D orange">Elige tu Rolls</p>
                                 <br>
                                 <select name="c1Rolls" class="btn" id="c1Rolls">
-                                    <option value="Campesina">Campesina</option>
-                                    <option value="Picarona">Picarona</option>
-                                    <option value="Rancherita">Rancherita</option>
-                                    <option value="Caprichosa">Caprichosa</option>
-                                    <option value="Melosa">Melosa</option>
-                                    <option value="Granjerita">Granjerita</option>
+                                    <option selected>Rolls</option>
+                                    <option value="Campesina">Campesina.</option>
+                                    <option value="Picarona">Picarona.</option>
+                                    <option value="Rancherita">Rancherita.</option>
+                                    <option value="Caprichosa">Caprichosa.</option>
+                                    <option value="Melosa">Melosa.</option>
+                                    <option value="Granjerita">Granjerita.</option>
                                 </select>
                                 <br></br>
                                 <p class="K2D orange">Acompañalo con un jugo</p>
                                 <br>
-                                <select name="c1Rolls" class="btn" id="c1Rolls">
+                                <select name="c1Rolls" class="btn" id="c1Juice">
+                                    <option selected>Jugo fusión</option>
                                     <option value="Naranana">Narananá</option>
                                     <option value="Limonango">Limonango</option>
                                     <option value="Citrinda">Citrinda</option>
@@ -629,9 +631,8 @@
                                     <option value="Maracunassa">Maracunassa</option>
                                 </select>
                                 <br></br>
-                                <div class="product-content row-3">
+                                <br></br>
                                 <input type="submit"  class="btn orange K2D" id="addCombo1" style="background-color: rgba(0,0,0,0);" value="Agregar"></input>
-                                </div>      
                             </form>
                         </div>
                             
@@ -675,7 +676,6 @@
     <script src="js/products.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/geolocation.js"></script>
     <script src="js/carousel.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
