@@ -27,6 +27,9 @@ let count = 0
 function addItem(id){
     const labelCart = document.getElementById("counterCart")
     // const campesina = document.getElementById("campesina")
+    const plusCombo1 = 'plus'+promo1[promo1.length-1].name
+    const lessCombo1 = 'less'+promo1[promo1.length-1].name
+
     switch(id){
         // Campesina
         case 'addCampesina':
@@ -309,18 +312,18 @@ function addItem(id){
 
 
          // Combo1
-        case 'plusCombo1': 
-        counterCombo1(promo1[0])
+        case plusCombo1: 
+        counterCombo1(promo1[promo1.length-1])
         count ++
         break;
 
         case 'addCombo1': 
-        counterCombo1(promo1[0])
+        counterCombo1(promo1[promo1.length-1])
         count ++
         break;
 
-        case 'lessCombo1': 
-        minusCombo1(promo1[0])
+        case lessCombo1: 
+        minusCombo1(promo1[promo1.length-1])
         count --
         break;
     }
@@ -806,11 +809,11 @@ function minusBurgerCerdoPat(campi){
 // Combos
 
 // Combo 1
-var promo1 = [{qty: 1,price:8000},]
+var promo1 = []
 
 function counterCombo1(campi){
     const camp = campi.qty++
-    console.log(camp)
+    console.log(campi)
     return camp
 }
 function minusCombo1(campi){
@@ -828,14 +831,21 @@ function pedido(){
     const pAdress1 = adress1.replace(/\s/g,'%20')
     const pAdress2 = adress2.replace(/\s/g,'%20')
     const pBarrio = barrio.replace(/\s/g,'%20')
-    const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa,maracunassa,naranana,tangerina,limonango,citrinda,mentulada,mazorcada,respan,respat,cerdopan,cerdopat,promo1]
+    const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa,maracunassa,naranana,tangerina,limonango,citrinda,mentulada,mazorcada,respan,respat,cerdopan,cerdopat]
     let pedido = []
     for (let i = 0; i<productos.length; i++){
         // pedido[i] = []
         if (productos[i].qty > 1  ){
             pedido.push(`${productos[i].qty-1}%20${productos[i].name+"s"}`)
         } 
-
+    }
+    let combos = [promo1]
+    for (let o = 0; o<combos.length; o++ ){
+        for ( let u = 0; u < combos[o].length; u++){
+            if (combos[o][u].qty > 1  ){
+                pedido.push(`${combos[o][u].qty-1}%20Combos%20de%20${combos[o][u].name1}`)
+            } 
+        }
     }
     let linkWa = pedido.join('%0A')
     const url = "https://api.whatsapp.com/send?phone=573209768038&text=%C2%A1Hola!%20Soy%20"+name.value+"%0AQuiero%3A%0A"+linkWa+"%0APara "+pAdress1+"%20No%20"+pAdress2+"%0AEn%20el%20barrio%20"+pBarrio+"%0AGracias"
@@ -856,10 +866,6 @@ function addCart(){
     let pedidoComidas = []
     let pedidoCombos = []
 
-    
-    console.log(combos1)
-
-
     for (let i = 0; i<productos.length; i++){
         if (productos[i].qty > 1  ){
             pedido.push(productos[i])
@@ -876,12 +882,14 @@ function addCart(){
         }
     }
 
-    for (let q = 0; q<combos1.length; q++){
-        if (combos1[q].qty > 1  ){
-            pedidoCombos.push(combos1[q])
+    for (let q = 0; q<combos.length; q++){
+        for(let r = 0; r < combos[q].length; r++){
+            if (combos[q][r].qty > 1  ){
+                pedidoCombos.push(combos[q][r])
+            }
         }
     }
-    
+    //  console.log(pedidoCombos)
     printCart(pedido,pedidoJugos,pedidoComidas,pedidoCombos)
     return pedido,pedidoJugos,pedidoComidas,pedidoCombos
 }
@@ -1200,30 +1208,6 @@ function listenBurger(event){
 const combo1Input = document.getElementById("combo1Input")
 combo1Input.addEventListener('submit',listenCombo1)
 
-var combos1 = []
-function listenCombo1(event){
-    event.preventDefault()
-    const combo1 = c1select()
-    
-        promo1.push({
-            id: combo1,
-            name: "Combo1",
-            name1: c1select().join(" y "),
-            qty: 1,
-        })
-    
-    for(let a = 1; a< promo1.length; a++){
-        if(promo1[a].name1 != promo1[a-1].name1){
-            combos1.push(promo1[a])
-        } else{
-            combos1[combos1.length-1].qty++
-        }
-    }
-
-    addItem("addCombo1")
-    showCart()
-}
-
 function c1select(){
     const c1 = []
     const rolls = document.getElementById("c1Rolls").value;
@@ -1231,6 +1215,38 @@ function c1select(){
     c1.push(rolls,jugos)
     return c1
 }
+
+function listenCombo1(event){
+    event.preventDefault()
+    const combo1 = c1select();
+    addingCombo1(combo1[0],combo1[1])
+    addItem("addCombo1")
+    showCart()
+}
+
+function addingCombo1(rolls,jugo){
+    const name = rolls + " y " + jugo
+    if(!promo1[0]){
+        promo1[0] = {
+            name: rolls+jugo,
+            name1: rolls+" y "+jugo,
+            qty: 1,
+            price: 8000
+        }
+    }
+    if(promo1[promo1.length - 1].name1 != name){
+        promo1.push({
+            name: rolls+jugo,
+            name1: rolls+" y "+jugo,
+            qty: 1,
+            price: 8000
+        })
+    }
+
+    console.log(promo1)
+}
+
+
 
 
 
