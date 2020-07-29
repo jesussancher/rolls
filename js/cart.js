@@ -23,13 +23,23 @@ itemCounter = function(){
 }
 var itemCounter = 1
 
+var lCombo = ''
+function lCombos(id){
+    lCombo = id.id
+    addItem(lCombo)
+}
+var pCombo = ''
+function pCombos(id){
+    pCombo = id
+    // console.log(pCombo)
+}
+
 let count = 0
 function addItem(id){
     const labelCart = document.getElementById("counterCart")
-    // const campesina = document.getElementById("campesina")
-    const plusCombo1 = 'plus'+promo1[promo1.length-1].name
-    const lessCombo1 = 'less'+promo1[promo1.length-1].name
-
+    // const addCombo1 = pCombo.replace("plus","add")
+    const comboId = id;
+    console.log(comboId)
     switch(id){
         // Campesina
         case 'addCampesina':
@@ -299,7 +309,7 @@ function addItem(id){
          count ++
          break;
  
-         case 'addBurgerCerdoPat': 
+         case 'addBurger(Cerdo/Patacon)': 
          counterBurgerCerdoPat(cerdopat)
          count ++
          break;
@@ -312,26 +322,30 @@ function addItem(id){
 
 
          // Combo1
-        case plusCombo1: 
-        counterCombo1(promo1[promo1.length-1])
-        count ++
-        break;
-
-        case 'addCombo1': 
-        counterCombo1(promo1[promo1.length-1])
-        count ++
-        break;
-
-        case lessCombo1: 
-        minusCombo1(promo1[promo1.length-1])
+        case lCombo: 
+        console.log(promo1)
+        minusCombo1(promo1[0])
         count --
         break;
+
+        case pCombo:
+        console.log(promo1)
+        counterCombo1(promo1[0])
+        count ++
+        break;
+
+        case id:
+        console.log(promo1)
+        counterCombo1(promo1[0])
+        count ++
+        break;
+
+       
     }
     const html = `${count}`
     if (count > 0){
     labelCart.innerHTML = html
     // console.log(carrito)
-    console.log(id)
     // printCart()
     }else{
         count = 0
@@ -813,12 +827,12 @@ var promo1 = []
 
 function counterCombo1(campi){
     const camp = campi.qty++
-    console.log(campi)
+    // console.log(promo1)
     return camp
 }
 function minusCombo1(campi){
     const camp = campi.qty--
-    console.log(camp)
+    // console.log(camp)
     return camp
 }
 
@@ -889,7 +903,7 @@ function addCart(){
             }
         }
     }
-    //  console.log(pedidoCombos)
+    // console.log(pedidoCombos)
     printCart(pedido,pedidoJugos,pedidoComidas,pedidoCombos)
     return pedido,pedidoJugos,pedidoComidas,pedidoCombos
 }
@@ -901,7 +915,7 @@ function printCart(pedido,jugos,comidas,combos){
     const carritoTotal = document.getElementById("carritoListaTotal")
     const gracias = document.getElementById("thanks")
     const name = document.getElementById("name")
-
+    // console.log(combos)
     let total = 0
     let printTotal = ''
     const html = pedido.map(function(productos){
@@ -941,6 +955,7 @@ function printCart(pedido,jugos,comidas,combos){
     })
 
     const FastFood = comidas.map(function(comidas){
+        // console.log(comidas)
         total = total + comidas.price*(comidas.qty-1)
         printTotal = '$'+total
         return (total,` 
@@ -957,19 +972,20 @@ function printCart(pedido,jugos,comidas,combos){
         
         `)
     })
-
-    // console.log(combos)
-    const Combos = combos.map(function(combos){
-        total = total + combos.price*(combos.qty-1)
+    var count = 0
+    const Combos = combos.map(function(combo){
+        count++
+        
+        total = total + combo.price*(combo.qty-1)
         printTotal = '$'+total
         return (total,` 
         <div class="list-item row">
-        <p style="overflow:hidden" class="K2D white align-left col-7">${combos.name1}</p>
+        <p style="overflow:hidden" class="K2D white align-left col-7">${combo.name1}</p>
         <div class="col-5">
             <div class="row">
-                <span id="less${combos.name}" onclick="addItem(id),addCart()" class="bebas col-4 cart-btn">-</span>
-                <p class="K2D white align-center col-4">${combos.qty-1}</p>
-                <span id="plus${combos.name}" onclick="addItem(id),addCart()" class="bebas col-4 cart-btn">+</span>
+                <span id="less${combo.name}" onclick="lCombos(less${combo.name}),addCart()" class="bebas col-4 cart-btn">-</span>
+                <p class="K2D white align-center col-4">${combo.qty-1}</p>
+                <span id="plus${combo.name}" onclick="pCombos(id),addItem(id),addCart()" class="bebas col-4 cart-btn">+</span>
             </div>    
         </div>
         </div>
@@ -1220,7 +1236,8 @@ function listenCombo1(event){
     event.preventDefault()
     const combo1 = c1select();
     addingCombo1(combo1[0],combo1[1])
-    addItem("addCombo1")
+    addItem("add"+combo1[0]+combo1[1])
+    // console.log("add"+combo1[0]+combo1[1])
     showCart()
 }
 
@@ -1243,7 +1260,7 @@ function addingCombo1(rolls,jugo){
         })
     }
 
-    console.log(promo1)
+    // console.log(promo1)
 }
 
 
@@ -1465,12 +1482,3 @@ function confirmar(){
     
 }
   
-
-// let carrito= {
-//     campesina: counterCampesina(),
-//     rancherita: counterRancherita(),
-//     picarona: counterPicarona(),
-//     melosa: counterMelosa(),
-//     granjerita: counterGranjerita(),
-//     caprichosa: counterCaprichosa(capi),
-// }
