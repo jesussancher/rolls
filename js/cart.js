@@ -23,23 +23,34 @@ itemCounter = function(){
 }
 var itemCounter = 1
 
+var c1I = 0
+function c1Index(i){
+    c1I = i-1
+}
+
 var lCombo = ''
 function lCombos(id){
     lCombo = id.id
-    addItem(lCombo)
+    // addItem(lCombo)
 }
 var pCombo = ''
 function pCombos(id){
     pCombo = id
     // console.log(pCombo)
+    // addItem(pCombo)
 }
 
 let count = 0
+var comboId =''
+
 function addItem(id){
     const labelCart = document.getElementById("counterCart")
     // const addCombo1 = pCombo.replace("plus","add")
-    const comboId = id;
-    console.log(comboId)
+    const nC1 = "add"+promo1[promo1.length-1].name
+    if( nC1 != id){
+         comboId= id;
+    }
+    console.log(nC1)
     switch(id){
         // Campesina
         case 'addCampesina':
@@ -323,24 +334,23 @@ function addItem(id){
 
          // Combo1
         case lCombo: 
-        console.log(promo1)
-        minusCombo1(promo1[0])
+        // console.log(promo1)
+        minusCombo1(promo1[c1I])
         count --
         break;
 
         case pCombo:
-        console.log(promo1)
-        counterCombo1(promo1[0])
+        // console.log(promo1)
+        counterCombo1(promo1[c1I])
         count ++
         break;
 
         case id:
-        console.log(promo1)
-        counterCombo1(promo1[0])
+        // console.log(promo1)
+        counterCombo1(promo1[c1I])
         count ++
         break;
 
-       
     }
     const html = `${count}`
     if (count > 0){
@@ -874,7 +884,7 @@ function addCart(){
     const productos = [campesina,rancherita,melosa,picarona,granjerita,caprichosa]
     const jugos = [maracunassa,naranana,tangerina,limonango,citrinda,mentulada]
     const comidasRapidas = [mazorcada,respan,respat,cerdopan,cerdopat]
-    const combos = [promo1]
+    const combos = promo1
     let pedido = []
     let pedidoJugos = []
     let pedidoComidas = []
@@ -887,6 +897,7 @@ function addCart(){
     }
     for (let o = 0; o<jugos.length; o++){
         if (jugos[o].qty > 1  ){
+            console.log("Jugos: ",pedidoJugos)
             pedidoJugos.push(jugos[o])
         }
     }
@@ -896,14 +907,12 @@ function addCart(){
         }
     }
 
-    for (let q = 0; q<combos.length; q++){
-        for(let r = 0; r < combos[q].length; r++){
-            if (combos[q][r].qty > 1  ){
-                pedidoCombos.push(combos[q][r])
-            }
+    for (let q = 0; q<promo1.length; q++){
+        if (promo1[q].qty > 1 ){
+            pedidoCombos=promo1
         }
     }
-    // console.log(pedidoCombos)
+    console.log("Pedido Combos: ",pedidoCombos)
     printCart(pedido,pedidoJugos,pedidoComidas,pedidoCombos)
     return pedido,pedidoJugos,pedidoComidas,pedidoCombos
 }
@@ -983,9 +992,9 @@ function printCart(pedido,jugos,comidas,combos){
         <p style="overflow:hidden" class="K2D white align-left col-7">${combo.name1}</p>
         <div class="col-5">
             <div class="row">
-                <span id="less${combo.name}" onclick="lCombos(less${combo.name}),addCart()" class="bebas col-4 cart-btn">-</span>
+                <span id="less${combo.name}" onclick="c1Index(${count}),lCombos(less${combo.name}),addItem(id),addCart()" class="bebas col-4 cart-btn">-</span>
                 <p class="K2D white align-center col-4">${combo.qty-1}</p>
-                <span id="plus${combo.name}" onclick="pCombos(id),addItem(id),addCart()" class="bebas col-4 cart-btn">+</span>
+                <span id="plus${combo.name}" onclick="c1Index(${count}),pCombos(id),addItem(id),addCart()" class="bebas col-4 cart-btn">+</span>
             </div>    
         </div>
         </div>
@@ -1237,7 +1246,7 @@ function listenCombo1(event){
     const combo1 = c1select();
     addingCombo1(combo1[0],combo1[1])
     addItem("add"+combo1[0]+combo1[1])
-    // console.log("add"+combo1[0]+combo1[1])
+    console.log("add"+combo1[0]+combo1[1])
     showCart()
 }
 
@@ -1251,16 +1260,16 @@ function addingCombo1(rolls,jugo){
             price: 8000
         }
     }
-    if(promo1[promo1.length - 1].name1 != name){
+    if(promo1[promo1.length-1].name1 != name){
         promo1.push({
             name: rolls+jugo,
             name1: rolls+" y "+jugo,
-            qty: 1,
+            qty: 2,
             price: 8000
         })
     }
 
-    // console.log(promo1)
+    console.log("Promo 1 ",promo1)
 }
 
 
