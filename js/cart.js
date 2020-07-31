@@ -320,7 +320,7 @@ function addItem(id){
          count ++
          break;
  
-         case 'addBurger(Cerdo/Patacon)': 
+         case 'addBurgerCerdoPat': 
          counterBurgerCerdoPat(cerdopat)
          count ++
          break;
@@ -330,26 +330,6 @@ function addItem(id){
          count --
          break;
 
-
-
-         // Combo1
-        case lCombo: 
-        // console.log(promo1)
-        minusCombo1(promo1[c1I])
-        count --
-        break;
-
-        case pCombo:
-        // console.log(promo1)
-        counterCombo1(promo1[c1I])
-        count ++
-        break;
-
-        case id:
-        // console.log(promo1)
-        counterCombo1(promo1[c1I])
-        count ++
-        break;
 
     }
     const html = `${count}`
@@ -824,27 +804,25 @@ function counterBurgerCerdoPat(campi){
 function minusBurgerCerdoPat(campi){
     // const label = document.getElementById("labelBurger")
     const camp = campi.qty--
-
-    
     return camp
 }
 
 
 // Combos
 
-// Combo 1
+// // Combo 1
 var promo1 = []
 
-function counterCombo1(campi){
-    const camp = campi.qty++
-    // console.log(promo1)
-    return camp
-}
-function minusCombo1(campi){
-    const camp = campi.qty--
-    // console.log(camp)
-    return camp
-}
+// function counterCombo1(campi){
+//     const camp = campi.qty++
+//     // console.log(promo1)
+//     return camp
+// }
+// function minusCombo1(campi){
+//     const camp = campi.qty--
+//     // console.log(camp)
+//     return camp
+// }
 
 
 function pedido(){
@@ -912,7 +890,7 @@ function addCart(){
             pedidoCombos=promo1
         }
     }
-    console.log("Pedido Combos: ",pedidoCombos)
+    // console.log("Pedido Combos: ",pedidoCombos)
     printCart(pedido,pedidoJugos,pedidoComidas,pedidoCombos)
     return pedido,pedidoJugos,pedidoComidas,pedidoCombos
 }
@@ -964,7 +942,7 @@ function printCart(pedido,jugos,comidas,combos){
     })
 
     const FastFood = comidas.map(function(comidas){
-        // console.log(comidas)
+        console.log(comidas)
         total = total + comidas.price*(comidas.qty-1)
         printTotal = '$'+total
         return (total,` 
@@ -1226,7 +1204,7 @@ function listenBurger(event){
     }
 
     showCart()
-    
+    console.log(tipoChoose, carneChoose)
     // printCounter('lessMazorcada','labelMazorca','space-32','space-33')
 }
 
