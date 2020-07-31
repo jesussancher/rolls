@@ -46,11 +46,11 @@ var comboId =''
 function addItem(id){
     const labelCart = document.getElementById("counterCart")
     // const addCombo1 = pCombo.replace("plus","add")
-    const nC1 = "add"+promo1[promo1.length-1].name
-    if( nC1 != id){
-         comboId= id;
-    }
-    console.log(nC1)
+    // const nC1 = "add"+promo1[promo1.length-1].name
+    // if( nC1 != id){
+    //      comboId= id;
+    // }
+    // console.log(nC1)
     switch(id){
         // Campesina
         case 'addCampesina':
